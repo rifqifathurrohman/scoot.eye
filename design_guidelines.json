@@ -1,0 +1,163 @@
+{
+  "brand": {
+    "name": "SCOOT Eyewear",
+    "tagline": "Ride Your Own Style",
+    "description": "Independent eyewear inspired by vintage scooter culture, timeless silhouettes, and personalized custom designs.",
+    "whatsapp": "6285156581959",
+    "whatsapp_message_template": "Halo SCOOT EYEWEAR, saya ingin bertanya."
+  },
+  "design_system": {
+    "theme": "light",
+    "style": "Monochrome identity, editorial fashion, vintage scooter culture, brutalist minimal.",
+    "typography": {
+      "headings": {
+        "family": "Cabinet Grotesk, sans-serif",
+        "weight": "bold",
+        "transform": "uppercase",
+        "tracking": "tracking-tighter"
+      },
+      "body": {
+        "family": "Inter, sans-serif",
+        "weight": "normal",
+        "tracking": "tracking-normal"
+      },
+      "rules": [
+        "Use generous line-heights (leading-relaxed) for readability.",
+        "Headings must be bold and impactful, often uppercase.",
+        "Use mono fonts for small technical details or labels if needed to add an editorial edge."
+      ]
+    },
+    "colors": {
+      "primary": "#000000",
+      "secondary": "#FFFFFF",
+      "accent": "#C8102E",
+      "background": "#F9F9F9",
+      "surface": "#FFFFFF",
+      "border": "#E5E5E5",
+      "text": {
+        "main": "#000000",
+        "muted": "#666666",
+        "inverse": "#FFFFFF"
+      }
+    },
+    "spacing": "Generous padding and margins (p-8 to p-24). Use large gaps (gap-8, gap-12) between grid items.",
+    "components": {
+      "buttons": "Sharp corners (rounded-none), bg-black text-white or border border-black text-black, uppercase, hover:bg-gray-900.",
+      "cards": "No visible card containers. Images stretch to container width. Minimalist text below images.",
+      "inputs": "Sharp corners (rounded-none), border-gray-300, focus:border-black focus:ring-1 focus:ring-black.",
+      "badges": "Sharp edges, uppercase, small text, border border-black."
+    }
+  },
+  "mock_data": {
+    "products": [
+      { "id": "brill", "name": "Brill", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/brill/brill-01.webp", "colors": ["Hitam"] },
+      { "id": "ocala", "name": "Ocala", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/ocala/ocala-01.webp", "colors": ["Putih/Krem"] },
+      { "id": "casama", "name": "Casama", "price": 110000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/casama/casama-01.webp", "colors": ["Hitam"] },
+      { "id": "brazz", "name": "Brazz", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/brazz/brazz-01.webp", "colors": ["Hitam"] },
+      { "id": "duble", "name": "Duble", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/duble/duble-01.webp", "colors": ["Hitam"] },
+      { "id": "kurera", "name": "Kurera", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/kurera/kurera-01.webp", "colors": ["Hitam"] },
+      { "id": "tropic", "name": "Tropic", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/tropic/tropic-01.webp", "colors": ["Hitam"] },
+      { "id": "satvale", "name": "Satvale", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/satvale/satvale-01.webp", "colors": ["Biru"] },
+      { "id": "fourty", "name": "Fourty", "price": 100000, "image": "https://ftreyewear-fas8dpd2.manus.space/assets/products/fourty/fourty-01.webp", "colors": ["Hitam"] }
+    ],
+    "custom_print_price": 15000
+  },
+  "pages": {
+    "homepage": {
+      "path": "/",
+      "sections": [
+        "Hero Carousel: 3 slides with full-bleed images, text overlay ('RIDE YOUR OWN STYLE', 'Monochrome identity', 'Vintage soul. Modern vision.', 'Colorful culture. Your own way.').",
+        "Featured Collection ('Koleksi unggulan'): Grid of 4 products (Brill, Ocala, Casama, Brazz).",
+        "Custom Print Banner ('MAKE IT YOURS'): Split layout. Image of glasses temple on one side, text and CTA on the other.",
+        "About Us Teaser ('MORE THAN JUST EYEWEAR'): Text heavy editorial block.",
+        "Gallery ('Lihat lebih dekat'): Grid of 3 editorial images.",
+        "Wholesale & Contact CTA blocks."
+      ]
+    },
+    "katalog": {
+      "path": "/katalog",
+      "layout": "Two-column layout on desktop: Sidebar (1/4 width) and Product Grid (3/4 width).",
+      "sidebar": "Filters: 'CARI MODEL' (Search input), 'MODEL' (Checkbox list), 'WARNA BINGKAI' (Checkbox list), 'HARGA POLOS' (Radio list).",
+      "main": "Top bar with sorting dropdown ('Terbaru', 'Harga terendah', 'Harga tertinggi'). Grid of products (3 cols desktop, 2 cols mobile).",
+      "product_card": "Image, Category ('SCOOT ORIGINALS'), Name, Price, 'PILIH WARNA BINGKAI'. Hover effect shows secondary image or subtle zoom."
+    },
+    "product_detail": {
+      "path": "/produk/:id",
+      "layout": "Split screen on desktop. Left: Scrollable stack of large product images. Right: Sticky product information.",
+      "details": {
+        "header": "Breadcrumbs, Category, Title, Price.",
+        "variants": "Radio group for 'Kacamata polos' (Base price) vs 'Custom print' (+Rp15.000).",
+        "custom_form": "If 'Custom print' is selected, show: 'Tulisan custom' (Text input), 'Unggah logo' (File input), 'Catatan tambahan' (Textarea).",
+        "actions": "Quantity selector (- / +), 'TAMBAH KE KERANJANG' button, 'TANYA VIA WHATSAPP' button.",
+        "accordions": "Informasi produk, Paket custom print, Informasi pemesanan."
+      }
+    },
+    "custom_print": {
+      "path": "/custom-print",
+      "sections": [
+        "Hero: 'MAKE IT YOURS' with large image of glasses temple.",
+        "Info: Explanation of +Rp15.000 cost and what is included.",
+        "Steps: 4-step grid (Pilih model, Pilih custom, Tulis cirimu, Kirim pesanan)."
+      ]
+    },
+    "keranjang": {
+      "path": "/keranjang",
+      "layout": "Cart items list on left, Order summary on right.",
+      "features": "Update quantity, remove item. Show custom print details if applicable. Subtotal calculation. 'Checkout via WhatsApp' button that generates a formatted message."
+    },
+    "tentang_kami": {
+      "path": "/tentang-kami",
+      "content": "Editorial layout. 'Style is personal. Culture is timeless.' 3 pillars: Independent, Timeless, Custom."
+    },
+    "grosir": {
+      "path": "/grosir",
+      "content": "Information for orders > 100 pcs. 3 steps: Bagikan kebutuhanmu, Dapatkan penawaran, Konfirmasi pesanan. WhatsApp CTA."
+    },
+    "panduan_produk": {
+      "path": "/panduan-produk",
+      "content": "Static page with product care and sizing information."
+    },
+    "kontak": {
+      "path": "/kontak",
+      "content": "Contact form and WhatsApp link."
+    }
+  },
+  "image_urls": {
+    "campaigns": [
+      "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-maroon_2b77d7cf.webp",
+      "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-red-frame_ae537b5b.webp",
+      "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-neon_3b036a8c.webp"
+    ],
+    "gallery": [
+      "https://ftreyewear-fas8dpd2.manus.space/assets/products/ocala/ocala-07.webp",
+      "https://ftreyewear-fas8dpd2.manus.space/assets/products/brazz/brazz-05.webp",
+      "https://ftreyewear-fas8dpd2.manus.space/assets/products/tropic/tropic-06.webp"
+    ],
+    "misc": [
+      "https://ftreyewear-fas8dpd2.manus.space/assets/products/brill/brill-02.webp",
+      "https://ftreyewear-fas8dpd2.manus.space/assets/products/casama/casama-04.webp"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build a fully functional React frontend mimicking the exact layout and design of the reference site.",
+    "Use Tailwind CSS for styling. Ensure all components use sharp corners (rounded-none) to match the editorial, brutalist monochrome aesthetic.",
+    "Implement the catalog with functional filtering (by model, color, price) and sorting.",
+    "Implement the product detail page with a sticky right column and scrollable left image gallery.",
+    "Implement the custom print form on the product page (conditional fields when 'Custom print' variant is selected).",
+    "Implement a functional cart using React context or Zustand, with a checkout button that formats the order into a WhatsApp message link.",
+    "Use Lucide React for icons.",
+    "Ensure the navigation is sticky and changes background on scroll.",
+    "Include data-testid attributes on all interactive elements.",
+    "Create all 9 pages as specified in the 'pages' object.",
+    "Use the provided image URLs for products and campaigns."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Create depth through layered design elements.",
+    "Do not use transparent backgrounds on dropdowns or sticky headers without backdrop blur.",
+    "Never use generic AI emojis.",
+    "Ensure high contrast and accessibility.",
+    "Use Sonner for toast notifications.",
+    "Do not center align the app container.",
+    "Use modern button styles with interaction animations."
+  ]
+}
