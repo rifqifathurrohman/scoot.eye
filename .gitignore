@@ -88,3 +88,7 @@ android-sdk/
 
 # overlay black-box crash/user-report dumps — session data, never history
 **/.emergent/recordings/
+
+# Instagram post build intermediates (regenerate with marketing/instagram/*.py)
+marketing/instagram/assets/cutouts/
+marketing/instagram/html/
