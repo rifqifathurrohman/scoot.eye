@@ -18,6 +18,7 @@ import {
 import { toast } from "sonner";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import PriceTag from "@/components/PriceTag";
 import { addCartItem } from "@/lib/cart";
 import { readCustomDraft } from "@/lib/customDraft";
 import {
@@ -25,6 +26,9 @@ import {
   formatPrice,
   getAvailableVariants,
   getVariantByCode,
+  isDiscounted,
+  OPENING_PROMO_LABEL,
+  priceOf,
   productById,
   whatsappUrl,
 } from "@/lib/catalog";
@@ -90,7 +94,7 @@ export default function ProductDetail() {
   const selectedStock = selectedVariant?.stock ?? 0;
   const colorName = selectedVariant?.color ?? selectedColor;
   const quantityAtLimit = quantity >= selectedStock;
-  const unitPrice = product.price + (customPrint ? CUSTOM_PRINT_PRICE : 0);
+  const unitPrice = priceOf(product) + (customPrint ? CUSTOM_PRINT_PRICE : 0);
   const whatsappText = `Halo SCOOT EYEWEAR, saya ingin bertanya tentang ${product.name} warna ${colorName} (kode ${selectedColor}). Jumlah: ${quantity} pcs. Pilihan: ${customPrint ? "custom print" : "polos"}. Harga satuan: ${formatPrice(unitPrice)}.`;
   const selectVariant = (code: string) => {
     setSelectedColor(code);
@@ -274,13 +278,23 @@ export default function ProductDetail() {
                 className="font-heading text-3xl font-bold tracking-[-0.06em]"
                 data-testid="product-price"
               >
-                {formatPrice(unitPrice)}
+                <PriceTag
+                  product={product}
+                  extra={customPrint ? CUSTOM_PRINT_PRICE : 0}
+                  strikeClassName="text-xl"
+                  suffix=""
+                />
                 <span className="font-mono text-xs font-normal tracking-normal text-[#666]">
                   /pcs
                 </span>
               </span>
               <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-[#666]">
                 Harga {customPrint ? "custom print" : "kacamata polos"}
+                {isDiscounted(product) && (
+                  <span className="ml-2 bg-[#c8102e] px-1.5 py-0.5 font-bold text-white">
+                    Harga opening {OPENING_PROMO_LABEL}
+                  </span>
+                )}
               </p>
             </div>
             <div className="mt-7" data-testid="product-color-selector">
@@ -344,7 +358,7 @@ export default function ProductDetail() {
                     </small>
                   </span>
                   <span className="font-mono text-xs font-bold">
-                    {formatPrice(product.price)}
+                    <PriceTag product={product} suffix="" className="justify-end" />
                   </span>
                 </button>
                 <button
@@ -362,7 +376,7 @@ export default function ProductDetail() {
                     </small>
                   </span>
                   <span className="font-mono text-xs font-bold">
-                    {formatPrice(product.price + CUSTOM_PRINT_PRICE)}
+                    <PriceTag product={product} extra={CUSTOM_PRINT_PRICE} suffix="" className="justify-end" />
                   </span>
                 </button>
               </div>

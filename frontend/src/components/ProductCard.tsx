@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PriceTag from "@/components/PriceTag";
 import {
+  CUSTOM_PRINT_PRICE,
   formatPrice,
   getAvailableVariants,
   getDominantFrameColor,
@@ -111,11 +113,10 @@ export default function ProductCard({
             {product.name}
           </Link>
           <span
-            className="whitespace-nowrap font-mono text-[11px] font-bold"
+            className="whitespace-nowrap text-right font-mono text-[11px] font-bold"
             data-testid={`product-price-${product.id}`}
           >
-            {formatPrice(product.price)}
-            <span className="font-normal text-[#666]">/pcs</span>
+            <PriceTag product={product} className="flex-col items-end gap-y-0" strikeClassName="text-[10px]" />
           </span>
         </div>
         <p
@@ -135,7 +136,7 @@ export default function ProductCard({
                 ? "Out of stock"
                 : "Warna tidak ready untuk model ini"}
           </span>
-          <span className="text-[#c8102e]">Custom +Rp15.000</span>
+          <span className="text-[#c8102e]">Custom +{formatPrice(CUSTOM_PRINT_PRICE)}</span>
         </div>
         <div className="mt-4" data-testid={`product-swatches-${product.id}`}>
           <p className="font-mono text-[9px] font-bold uppercase tracking-[0.14em]">

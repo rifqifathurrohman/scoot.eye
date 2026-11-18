@@ -443,6 +443,9 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                         style={{ background: item.swatch }}
                       />
                       {item.label}
+                      {item.id === "white" && (
+                        <span className="bg-black px-1 py-0.5 text-[8px] text-white">Utama</span>
+                      )}
                     </button>
                   ))}
                 </div>

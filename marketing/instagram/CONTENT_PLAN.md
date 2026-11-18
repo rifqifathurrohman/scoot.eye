@@ -1,5 +1,8 @@
 # SCOOT Eyewear — Instagram launch week (@scoot.eyewear)
 
+**Harga opening:** Rp100.000 (Casama Rp110.000) sampai Minggu 29 Nov 2026; mulai Senin 30 Nov harga normal
+Rp120.000 (Casama Rp130.000). Website berganti otomatis. **Warna grafir utama: putih.**
+
 Format semua post: feed 4:5 (1080×1350). Visual ada di `export/`, sumber desain di `build_posts.py`
 (gaya mengikuti konsep Canva "SCOOT Ig Post"). Jam dalam WIB (Asia/Jakarta).
 
@@ -34,8 +37,8 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 >
 > Lahir dari kultur skuter vintage dan semangat untuk tampil beda. Kacamata ini bukan sekadar aksesori. Ini caramu bilang siapa dirimu.
 >
-> ▫️ 9 model Belisima Series, mulai Rp100.000
-> ▫️ Custom print di gagang: nama, inisial, atau logo kecil (+Rp15.000/pcs)
+> ▫️ 9 model Belisima Series. Harga opening Rp100.000 (normal Rp120.000), berlaku s/d 29 Nov
+> ▫️ Custom grafir putih di gagang: nama, inisial, atau logo kecil (+Rp15.000/pcs)
 > ▫️ Order via website & WhatsApp. Shopee segera hadir.
 >
 > Geser untuk lihat semua modelnya →
@@ -57,7 +60,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 >
 > Ocala hadir dengan siluet oval cat-eye yang gampang dipadukan buat harian: hitam, leopard, cokelat, cokelat kayu, dan hitam lensa biru.
 >
-> Rp100.000/pcs · bisa custom print +Rp15.000
+> Harga opening Rp100.000/pcs (normal Rp120.000), s/d 29 Nov · bisa custom print +Rp15.000
 >
 > Kamu tim yang mana? Pilih nomornya di komentar: 1 hitam · 2 leopard · 3 cokelat · 4 cokelat kayu · 5 biru
 >
@@ -73,7 +76,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 > Kacamatamu, tanda tanganmu. ✍️
 >
-> Di SCOOT Custom Lab, kamu bisa grafir nama, inisial, tanggal spesial, atau logo kecil di gagang kacamata.
+> Di SCOOT Custom Lab, kamu bisa grafir nama, inisial, tanggal spesial, atau logo kecil di gagang kacamata, dengan warna grafir putih yang bersih dan kontras.
 >
 > 01 Pilih model
 > 02 Tulis cirimu
@@ -114,7 +117,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 >
 > Kurera: frame kotak yang tegas, untuk kamu yang suka tampil standout tanpa banyak usaha.
 >
-> Belisima Series · Rp100.000 · ready 3 warna (hitam, hitam-merah, hijau gelap) · bisa custom print
+> Belisima Series · harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov · ready 3 warna (hitam, hitam-merah, hijau gelap) · bisa custom print
 >
 > 🔗 Link di bio
 
@@ -146,7 +149,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 >
 > Satvale buat kamu yang berani main warna: biru gradasi, kuning, putih, dan hitam.
 >
-> Rp100.000/pcs · bisa custom print +Rp15.000
+> Harga opening Rp100.000/pcs (normal Rp120.000), s/d 29 Nov · bisa custom print +Rp15.000
 >
 > Warna mana yang bakal kamu pakai weekend ini? 👇
 > 🔗 Link di bio
@@ -168,4 +171,4 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 1. **Label AI.** Post #1 (slide 2) dan #5 memakai foto kampanye. Kalau foto itu hasil AI, centang label "AI info" di Instagram (atau `isAiGenerated` di Metricool).
 2. **Data warna.** Jumlah warna ready mengikuti stok di website saat ini. Sesuaikan kalau stok berubah.
-3. **Promo launching.** Konsep Canva memakai badge "11% OFF". Post ini belum memuat diskon apa pun; tambahkan hanya kalau promonya memang berlaku.
+3. **Promo opening.** Semua post 20–26 Nov memuat harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov. Kalau ada post setelah 29 Nov, pakai harga normal.

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useCartCount } from "@/lib/cart";
 import BrandMark from "@/components/BrandMark";
+import { formatPrice, isOpeningPromo, OPENING_PROMO_LABEL, priceOf, products } from "@/lib/catalog";
 
 const navItems = [
 	{ label: "Katalog", to: "/katalog/" },
@@ -23,10 +24,19 @@ export default function SiteHeader() {
 				data-testid="announcement-bar"
 			>
 				<div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
-					<span className="truncate" data-testid="announcement-copy">
-						<span className="hidden sm:inline">Welcome to SCOOT Eyewear — </span>
-						Ride Your Own Style.
-					</span>
+					{isOpeningPromo() ? (
+						<Link to="/katalog/" className="truncate hover:underline" data-testid="announcement-copy">
+							<span className="mr-2 bg-[#c8102e] px-1.5 py-0.5">Opening</span>
+							Mulai {formatPrice(Math.min(...products.map((item) => priceOf(item))))}{" "}
+							<span className="hidden sm:inline">· harga spesial </span>
+							{OPENING_PROMO_LABEL}
+						</Link>
+					) : (
+						<span className="truncate" data-testid="announcement-copy">
+							<span className="hidden sm:inline">Welcome to SCOOT Eyewear — </span>
+							Ride Your Own Style.
+						</span>
+					)}
 					<a
 						className="hidden items-center gap-1 underline underline-offset-4 sm:flex"
 						href="https://wa.me/6285156581959"

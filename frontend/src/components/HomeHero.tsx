@@ -2,7 +2,8 @@ import { ArrowDown, ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "
 import { useRef, useState } from "react";
 import type { CSSProperties, PointerEvent } from "react";
 import { Link } from "react-router-dom";
-import { campaignImages, formatPrice, getVariantByCode, productById } from "@/lib/catalog";
+import PriceTag from "@/components/PriceTag";
+import { campaignImages, getVariantByCode, productById } from "@/lib/catalog";
 
 const slides = [
   {
@@ -26,7 +27,7 @@ const featured = slides.map(({ product }) => {
   const item = productById(product.id);
   const variant = item ? getVariantByCode(item, product.code) : undefined;
   return item && variant
-    ? { id: item.id, name: item.name, price: item.price, index: item.index, image: variant.image }
+    ? { id: item.id, name: item.name, price: item.price, openingPrice: item.openingPrice, index: item.index, image: variant.image }
     : null;
 });
 
@@ -218,8 +219,7 @@ export default function HomeHero() {
                         {featured[active]?.name}
                       </p>
                       <p className="mt-1 font-mono text-[11px] font-bold">
-                        {featured[active] ? formatPrice(featured[active].price) : ""}
-                        <span className="font-normal text-[#666]">/pcs</span>
+                        {featured[active] && <PriceTag product={featured[active]} strikeClassName="text-[10px]" />}
                       </p>
                     </div>
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-black text-white transition-colors group-hover/card:bg-[#c8102e]">

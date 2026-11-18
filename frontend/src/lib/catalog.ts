@@ -8,7 +8,10 @@ export interface ProductVariant {
 export interface Product {
   id: string;
   name: string;
+  /** Regular price per pair. */
   price: number;
+  /** Opening-promo price, valid until OPENING_PROMO_END. */
+  openingPrice?: number;
   colors: string[];
   variants: ProductVariant[];
   description: string;
@@ -34,6 +37,16 @@ export interface CartItem {
 }
 
 export const CUSTOM_PRINT_PRICE = 15000;
+// Opening promo: openingPrice applies until the end of Sunday 29 Nov 2026 (WIB), then the regular price.
+export const OPENING_PROMO_END = new Date("2026-11-29T23:59:59+07:00");
+export const OPENING_PROMO_LABEL = "s/d 29 Nov";
+export const isOpeningPromo = (at: Date = new Date()) => at.getTime() <= OPENING_PROMO_END.getTime();
+/** Price a customer pays right now (opening price while the promo runs). */
+export const priceOf = (product: Pick<Product, "price" | "openingPrice">, at: Date = new Date()) =>
+  isOpeningPromo(at) && product.openingPrice ? product.openingPrice : product.price;
+/** True when the product currently shows a struck-through regular price. */
+export const isDiscounted = (product: Pick<Product, "price" | "openingPrice">, at: Date = new Date()) =>
+  priceOf(product, at) < product.price;
 export const WHATSAPP_NUMBER = "6285156581959";
 
 // Originals live in public/Belisima series; scripts/normalize_products.py writes trimmed,
@@ -83,7 +96,7 @@ export const getVariantByCode = (product: Product, code: string) =>
 
 export const products: Product[] = [
   {
-    id: "brill", name: "Brill", price: 100000,
+    id: "brill", name: "Brill", price: 120000, openingPrice: 100000,
     colors: ["BL", "LD", "PK", "TI", "TP"],
     variants: [
       variant("BL", 34, "A _ Brill", "BRILL BL.JPG", "Hitam"),
@@ -96,7 +109,7 @@ export const products: Product[] = [
     images: [image("A _ Brill", "BRILL BL.JPG")], collection: "BELISIMA SERIES", index: "01",
   },
   {
-    id: "ocala", name: "Ocala", price: 100000,
+    id: "ocala", name: "Ocala", price: 120000, openingPrice: 100000,
     colors: ["BB", "BG", "BL", "BR", "COBI", "GI", "LD", "TI", "WD"],
     variants: [
       variant("BB", 22, "B _ Ocala", "OCALA BB.JPG"), variant("BG", 0, "B _ Ocala", "OCALA BG.JPG"),
@@ -109,7 +122,7 @@ export const products: Product[] = [
     images: [image("B _ Ocala", "OCALA BB.JPG")], collection: "BELISIMA SERIES", index: "02",
   },
   {
-    id: "casama", name: "Casama", price: 110000,
+    id: "casama", name: "Casama", price: 130000, openingPrice: 110000,
     colors: ["BL", "BR", "LB", "LD", "LG", "LT", "TI"],
     variants: [
       variant("BL", 0, "C _ casama", "CASAMA BL .JPG"),
@@ -124,7 +137,7 @@ export const products: Product[] = [
     images: [image("C _ casama", "CASAMA BL .JPG")], collection: "BELISIMA SERIES", index: "03",
   },
   {
-    id: "brazz", name: "Brazz", price: 100000,
+    id: "brazz", name: "Brazz", price: 120000, openingPrice: 100000,
     colors: ["BB", "BL", "BO", "BR", "GR", "LB", "LD", "TG", "TP"],
     variants: [
       variant("BB", 0, "D _ Brazz", "Brazz BB.JPG"), variant("BL", 16, "D _ Brazz", "Brazz BL.JPG"),
@@ -137,7 +150,7 @@ export const products: Product[] = [
     images: [image("D _ Brazz", "Brazz BB.JPG")], collection: "BELISIMA SERIES", index: "04",
   },
   {
-    id: "duble", name: "Duble", price: 100000,
+    id: "duble", name: "Duble", price: 120000, openingPrice: 100000,
     colors: ["BC", "BL", "BP", "BR", "LB", "LC", "PC", "PP", "RB", "RC", "TC", "TI"],
     variants: [
       variant("BC", 0, "E _ duble", "DUBLE BC.JPG"), variant("BL", 79, "E _ duble", "DUBLE BL.JPG", "Hitam"),
@@ -151,7 +164,7 @@ export const products: Product[] = [
     images: [image("E _ duble", "DUBLE BL.JPG")], collection: "BELISIMA SERIES", index: "05",
   },
   {
-    id: "kurera", name: "Kurera", price: 100000,
+    id: "kurera", name: "Kurera", price: 120000, openingPrice: 100000,
     colors: ["BB", "BG", "BL", "BR", "BY", "GG", "OR", "TP", "WH"],
     variants: [
       variant("BB", 0, "F _ kurera", "KUKERA BB.JPG"), variant("BG", 32, "F _ kurera", "KUKERA BG.JPG"),
@@ -165,7 +178,7 @@ export const products: Product[] = [
     images: [image("F _ kurera", "KUKERA BL.JPG")], collection: "BELISIMA SERIES", index: "06",
   },
   {
-    id: "tropic", name: "Tropic", price: 100000,
+    id: "tropic", name: "Tropic", price: 120000, openingPrice: 100000,
     colors: ["BB", "BL", "BP", "BR", "BY", "HW", "LD", "PK", "WH"],
     variants: [
       variant("BB", 0, "G _ tropic", "TROPIC BB.jpeg"), variant("BL", 0, "G _ tropic", "TROPIC BL.JPG"),
@@ -178,7 +191,7 @@ export const products: Product[] = [
     images: [image("G _ tropic", "TROPIC BL.JPG")], collection: "BELISIMA SERIES", index: "07",
   },
   {
-    id: "satvale", name: "Satvale", price: 100000,
+    id: "satvale", name: "Satvale", price: 120000, openingPrice: 100000,
     colors: ["BB", "BG", "BL", "LD", "ST", "TI", "WH"],
     variants: [
       variant("BB", 29, "H _ SATVALE", "SATVALE BB.JPG", "Biru"),
@@ -193,7 +206,7 @@ export const products: Product[] = [
     images: [image("H _ SATVALE", "SATVALE BB.JPG")], collection: "BELISIMA SERIES", index: "08",
   },
   {
-    id: "fourty", name: "Fourty", price: 100000,
+    id: "fourty", name: "Fourty", price: 120000, openingPrice: 100000,
     colors: ["BL", "CL", "LD", "TB", "TG", "TP", "TT"],
     variants: [
       variant("BL", 35, "I _ FOURTY", "FOURTY BL.JPG"), variant("CL", 25, "I _ FOURTY", "FOURTY CL.JPG"),

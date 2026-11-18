@@ -35,6 +35,9 @@ PHOTO = {
 }
 TEMPLE = uri("marketing/instagram/assets/temple-brill.webp")
 MAROON = "#8e1b1f"
+# Opening promo (until Sun 29 Nov 2026): Rp100.000, regular Rp120.000 (Casama 110rb → 130rb).
+OPENING_BADGE = "<span style='display:block'>Opening<br>100rb<span style='display:block;margin-top:6px;font-size:.48em;font-weight:600;letter-spacing:.02em'>s/d 29 Nov</span></span>"
+OPENING_LINE = "Harga opening Rp100.000 <s style='opacity:.55'>Rp120.000</s> · s/d 29 Nov"
 NOISE = (
     "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>"
     "<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/>"
@@ -121,15 +124,16 @@ def engraved_temple(text: str, size: float, finish: str, zoom: float, window_w: 
 def launch_cover():
     return page(f"""
 <img class='logo' src='{LOGO}'>
-<div class='abs small' style='right:54px;top:112px'>Belisima Series</div>
+<div class='abs small' style='right:54px;top:112px'>Belisima Series · Now live</div>
 {img('a-brill/brill-tp', 380, 190, 720, -8, 12)}
 {img('a-brill/brill-bl', -40, 470, 700, 9, 14)}
 {img('a-brill/brill-ld', 610, 610, 560, -14, 13)}
-{badge('Now<br>live', 70, 260, 200, -14, 46)}
+{badge(OPENING_BADGE, 60, 240, 230, -14, 34)}
 <div class='abs center' style='left:0;right:0;top:960px'>
   <div style='font-family:Inter;font-weight:500;font-size:62px;letter-spacing:-0.035em'>officially launching</div>
   <div class='serif' style='font-size:114px;margin-top:6px'>Ride Your Own Style</div>
   <div class='pill' style='margin-top:40px'>Shop now</div>
+  <div class='small' style='margin-top:22px;font-size:20px;letter-spacing:.12em'>{OPENING_LINE}</div>
 </div>""")
 
 
@@ -169,7 +173,7 @@ def launch_lineup():
 <div class='abs' style='left:40px;right:40px;top:400px;display:grid;grid-template-columns:repeat(3,1fr);row-gap:34px'>{cells}</div>
 <div class='abs center' style='left:0;right:0;bottom:70px'>
   <div style='font-family:Inter;font-weight:800;font-style:italic;font-size:118px;letter-spacing:-0.05em;text-transform:uppercase;line-height:.9'>*Series</div>
-  <div class='small' style='margin-top:14px;font-size:22px;letter-spacing:.14em'>9 model · mulai Rp100.000</div>
+  <div class='small' style='margin-top:14px;font-size:22px;letter-spacing:.14em'>9 model · {OPENING_LINE}</div>
 </div>""")
 
 
@@ -178,7 +182,7 @@ def launch_custom():
 <div class='abs center caps' style='left:0;right:0;top:120px'>SCOOT custom lab</div>
 <div class='abs center serif-up' style='left:0;right:0;top:180px;font-size:150px;color:#c0141f'>Make it <span class='serif' style='font-weight:700'>yours</span></div>
 <div class='abs copy center' style='left:120px;right:120px;top:360px;font-size:32px'>Grafir nama, inisial, atau logo kecil di gagang kacamatamu.</div>
-<div class='abs card' style='left:90px;top:490px;width:900px;height:560px'>{engraved_temple('RIDE YOUR OWN WAY', 1.75, 'gold', 1.9, 900, 560)}</div>
+<div class='abs card' style='left:90px;top:490px;width:900px;height:560px'>{engraved_temple('RIDE YOUR OWN WAY', 1.75, 'white', 1.9, 900, 560)}</div>
 {badge('+Rp<br>15rb', 830, 420, 180, 10, 40)}
 <div class='abs center' style='left:0;right:0;top:1100px'>
   <div class='small' style='font-size:24px;letter-spacing:.12em'>+Rp15.000/pcs · pouch hitam &amp; box cokelat</div>
@@ -212,6 +216,7 @@ def ocala_collection():
     return page(f"""
 <img class='logo center' src='{LOGO}' style='height:40px'>
 <div class='abs sans center' style='left:0;right:0;top:170px;font-size:180px'>Ocala</div>
+{badge(OPENING_BADGE, 860, 330, 180, 12, 28)}
 {''.join(img(p, x, y, w, r, 10 + i) for i, (p, x, y, w, r) in enumerate(shots))}
 <div class='abs small center' style='left:0;right:0;top:1060px;font-size:22px;letter-spacing:.16em'>Hitam · Leopard · Cokelat · Cokelat kayu · Biru</div>
 <div class='abs center' style='left:0;right:0;bottom:60px;font-family:Inter;font-weight:800;font-style:italic;font-size:124px;letter-spacing:-0.05em;text-transform:uppercase;line-height:.9'>*5 warna</div>""")
@@ -244,7 +249,7 @@ def shopee():
 
 
 def kurera_spec():
-    rows = [("Series", "Belisima"), ("Harga", "Rp100.000"), ("Warna ready", "3 warna"), ("Custom", "+Rp15.000")]
+    rows = [("Series", "Belisima"), ("Harga opening", f"100rb <s style='color:#999;font-size:22px'>120rb</s>"), ("Warna ready", "3 warna"), ("Custom", "+Rp15.000")]
     table = "".join(f"<div><span class='k'>{k}</span><span class='v'>{v}</span></div>" for k, v in rows)
     return page(f"""
 <img class='logo' src='{LOGO}'>
@@ -286,6 +291,7 @@ def satvale():
 <img class='logo' src='{LOGO}'>
 {img('h-satvale/satvale-bb', -60, 210, 880, 10, 12)}
 {img('h-satvale/satvale-st', 380, 470, 820, -12, 13)}
+{badge(OPENING_BADGE, 820, 110, 210, 12, 31)}
 <div class='abs center serif' style='left:0;right:0;top:960px;font-size:62px;font-weight:500'>Colorful Culture</div>
 <div class='abs center sans' style='left:0;right:0;top:1030px;font-size:176px'>Satvale</div>
 <div class='abs small' style='left:54px;bottom:54px;font-size:20px'>Independent eyewear<br>&amp; custom print.</div>

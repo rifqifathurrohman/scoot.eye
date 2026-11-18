@@ -9,10 +9,12 @@ import {
   formatPrice,
   getAvailableVariants,
   getDominantFrameColor,
+  priceOf,
   products,
 } from "@/lib/catalog";
 
 const modelOptions = products.map((product) => product.name);
+const priceOptions = Array.from(new Set(products.map((product) => priceOf(product)))).sort((a, b) => a - b);
 const availableVariants = products.flatMap((product) =>
   getAvailableVariants(product),
 );
@@ -78,14 +80,14 @@ export default function Catalog() {
             getAvailableVariants(product).some(
               (variant) => getDominantFrameColor(variant.color) === color,
             );
-          const priceMatch = price === "all" || product.price === Number(price);
+          const priceMatch = price === "all" || priceOf(product) === Number(price);
           return searchMatch && modelMatch && colorMatch && priceMatch;
         })
         .sort((a, b) =>
           sort === "low"
-            ? a.price - b.price
+            ? priceOf(a) - priceOf(b)
             : sort === "high"
-              ? b.price - a.price
+              ? priceOf(b) - priceOf(a)
               : Number(b.index) - Number(a.index),
         ),
     [color, models, price, search, sort],
@@ -269,8 +271,7 @@ export default function Catalog() {
                 <div className="mt-4 space-y-3">
                   {[
                     ["all", "Semua harga"],
-                    ["100000", formatPrice(100000)],
-                    ["110000", formatPrice(110000)],
+                    ...priceOptions.map((value) => [String(value), formatPrice(value)]),
                   ].map(([value, label]) => (
                     <label
                       key={value}
