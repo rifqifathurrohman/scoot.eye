@@ -214,12 +214,39 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 ---
 
-## Story harian (opsional, tidak perlu desain khusus)
+## Story launching — Kam 19 Nov (visual di `export/stories/`, 1080×1920)
 
-- **Kam 19:** repost tiap post launch ke story + stiker countdown "Shopee store".
-- **Jum–Sab:** polling stiker "Ocala hitam atau leopard?", lalu screen-record preview custom di website.
-- **Sen 23:** stiker link ke toko Shopee.
-- **Setiap hari:** balas DM/komentar < 1 jam di minggu pertama. Engagement awal sangat menentukan jangkauan akun baru.
+Konten penting berada di zona aman y 260–1620 px (atas = baris profil, bawah = kolom balas Instagram).
+Sticker (link, polling, kuis) **tidak bisa** ditambahkan lewat Metricool/API; tambahkan langsung di aplikasi
+Instagram bila story diposting manual.
+
+| Jam | File | Isi | Sticker yang disarankan | Highlight |
+|-----|------|-----|-------------------------|-----------|
+| 11.45 | `s1-officially-live` | "SCOOT Eyewear is officially live" | Mention post feed cover | OPENING |
+| 12.30 | `s2-website-live` | Website is now live + mockup HP | **Link** → https://scooteyewear.my.id | WEBSITE |
+| 16.45 | `s3-opening-price` | Harga opening 100rb (normal 120rb) s/d 29 Nov | **Countdown** "Promo opening berakhir" → 29 Nov 23.59 | OPENING |
+| 18.30 | `s4-custom-grafir` | Make it yours · grafir putih "NAMAMU DI SINI" | **Question** "Mau grafir tulisan apa?" | CUSTOM |
+| 20.15 | `s5-pick-your-style` | Pick your style: A Brill · B Ocala · C Kurera · D Satvale | **Quiz/Poll** A–D | KATALOG |
+| 21.00 | `s6-how-to-order` | How to order (4 langkah) + mockup halaman produk | **Link** → https://scooteyewear.my.id/katalog/ | ORDER |
+
+Hari-hari berikutnya: repost setiap post feed ke story (tap ikon pesawat → "Tambahkan ke story"), lalu
+Jum 20 Nov ulang `s3-opening-price`, dan Sen 23 Nov ganti stiker link ke toko Shopee bila sudah aktif.
+
+## Highlight (cover di `export/highlights/`)
+
+Urutan di profil (kiri → kanan): **OPENING · WEBSITE · KATALOG · CUSTOM · ORDER**
+
+| Highlight | Cover | Isi |
+|-----------|-------|-----|
+| OPENING | `hl-opening` (sparkle) | s1, s3 |
+| WEBSITE | `hl-website` (globe) | s2 |
+| KATALOG | `hl-katalog` (kacamata) | s5 + repost post Ocala, Kurera, Satvale |
+| CUSTOM | `hl-custom` (pena) | s4 + repost post custom 4 langkah |
+| ORDER | `hl-order` (tas belanja) | s6 + repost "Where to shop" (+ story Shopee nanti) |
+
+Cara membuat: profil → tombol **+** (Sorotan baru) → pilih story → beri nama → **Edit Sampul** → pilih
+foto cover dari galeri (unduh dulu PNG `hl-*.png` ke HP). Highlight hanya bisa dibuat dari story yang
+sudah tayang (atau dari Arsip Story), jadi buat setelah s1–s6 tayang malam ini.
 
 ## Perlu dicek sebelum posting
 
