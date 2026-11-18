@@ -26,7 +26,7 @@ export default function SiteFooter() {
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60" data-testid="footer-contact-label">Stay in touch</p>
             <a className="mt-5 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href="https://wa.me/6285156581959" target="_blank" rel="noreferrer" data-testid="footer-whatsapp-link"><MessageCircle size={14} /> WhatsApp ↗</a>
-            <a className="mt-3 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href="https://instagram.com" target="_blank" rel="noreferrer" data-testid="footer-instagram-link"><Instagram size={14} /> Instagram ↗</a>
+            <a className="mt-3 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href="https://www.instagram.com/scoot.eyewear/" target="_blank" rel="noreferrer" aria-label="Instagram SCOOT Eyewear (@scoot.eyewear)" data-testid="footer-instagram-link"><Instagram size={14} /> @scoot.eyewear ↗</a>
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-3 border-t border-white/20 pt-5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/50 sm:flex-row" data-testid="footer-bottom">

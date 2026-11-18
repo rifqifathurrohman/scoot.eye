@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { addCartItem } from "@/lib/cart";
+import { readCustomDraft } from "@/lib/customDraft";
 import {
   CUSTOM_PRINT_PRICE,
   formatPrice,
@@ -40,10 +41,15 @@ export default function ProductDetail() {
     const fromPhoto = available[Math.max(0, fotoParam - 1)];
     return fromPhoto?.code ?? available[0]?.code ?? target.colors[0] ?? "";
   };
-  const [customPrint, setCustomPrint] = useState(searchParams.get("custom") === "1");
-  const [customText, setCustomText] = useState("");
-  const [fileName, setFileName] = useState("");
-  const [note, setNote] = useState("");
+  const customMode = searchParams.get("custom") === "1";
+  // Design started in the "Make it yours" temple preview, if any.
+  const [draft] = useState(() => (customMode ? readCustomDraft() : null));
+  const [customPrint, setCustomPrint] = useState(customMode);
+  const [customText, setCustomText] = useState(draft?.text ?? "");
+  const [fileName, setFileName] = useState(draft?.fileName ?? "");
+  const [note, setNote] = useState(
+    draft ? `Gaya huruf: ${draft.fontLabel}. Warna grafir: ${draft.finishLabel}.` : "",
+  );
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(() => initialColorFor(product));
   useEffect(() => {

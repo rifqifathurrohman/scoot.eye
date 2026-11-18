@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/playfair-display";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -149,4 +150,44 @@
 
 .editorial-rise {
   animation: editorial-rise 700ms ease-out both;
+}
+/* Temple engraving preview (Make it yours) */
+@keyframes engrave-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes engrave-laser {
+  0% { left: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes engrave-float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -6px); }
+}
+
+.engrave-reveal {
+  animation: engrave-reveal 1.3s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+
+.engrave-laser {
+  animation: engrave-laser 1.3s cubic-bezier(0.6, 0, 0.4, 1) both;
+}
+
+.engrave-float {
+  animation: engrave-float 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engrave-reveal,
+  .engrave-laser,
+  .engrave-float {
+    animation: none;
+  }
+  .engrave-laser {
+    display: none;
+  }
 }

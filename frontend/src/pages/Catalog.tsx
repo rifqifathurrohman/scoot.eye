@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import ProductCard from "@/components/ProductCard";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { readCustomDraft } from "@/lib/customDraft";
 import {
   formatPrice,
   getAvailableVariants,
@@ -43,6 +44,11 @@ export default function Catalog() {
   const [price, setPrice] = useState("all");
   const [sort, setSort] = useState("newest");
   const customMode = searchParams.get("custom") === "1";
+  const [draftLabel] = useState(() => {
+    if (!customMode) return "";
+    const draft = readCustomDraft();
+    return draft?.text || draft?.fileName || "";
+  });
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const toggleModel = (name: string) =>
@@ -133,7 +139,14 @@ export default function Catalog() {
                 CUSTOM PRINT AKTIF
               </span>
               <span>
-                Pilih model untuk menambahkan tulisan personal +Rp15.000/pcs.
+                {draftLabel ? (
+                  <>
+                    Desainmu <strong>“{draftLabel}”</strong> tersimpan. Pilih model untuk
+                    melanjutkan (+Rp15.000/pcs).
+                  </>
+                ) : (
+                  "Pilih model untuk menambahkan tulisan personal +Rp15.000/pcs."
+                )}
               </span>
             </div>
           )}
