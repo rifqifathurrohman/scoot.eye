@@ -191,3 +191,59 @@
     display: none;
   }
 }
+
+/* Home hero motion */
+@keyframes hero-kenburns {
+  from { transform: scale(1.14); }
+  to { transform: scale(1); }
+}
+
+@keyframes hero-line-up {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes hero-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.hero-kenburns { animation: hero-kenburns 7s ease-out both; }
+.hero-line-up { animation: hero-line-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.hero-fade-up { animation: hero-fade-up 0.7s ease-out both; }
+.hero-progress { animation: hero-progress 6s linear both; transform-origin: left; }
+.hero-float { animation: hero-float 5s ease-in-out infinite; }
+.hero-spin { animation: hero-spin 18s linear infinite; }
+.hero-marquee { animation: hero-marquee 28s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns,
+  .hero-line-up,
+  .hero-fade-up,
+  .hero-float,
+  .hero-spin,
+  .hero-marquee {
+    animation: none;
+  }
+  /* Keep the slide timer working but without visible motion. */
+  .hero-progress { animation-duration: 6s; opacity: 0.6; }
+}

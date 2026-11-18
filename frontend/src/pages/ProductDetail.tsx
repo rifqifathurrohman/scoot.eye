@@ -178,7 +178,7 @@ export default function ProductDetail() {
         </div>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(360px,0.8fr)] lg:gap-20">
           <section className="min-w-0 lg:sticky lg:top-28 lg:self-start" data-testid="product-gallery">
-            <div className="relative overflow-hidden bg-[#e9e8e4]">
+            <div className="relative overflow-hidden bg-white">
               <img
                 key={mainImage}
                 src={mainImage}
@@ -231,7 +231,7 @@ export default function ProductDetail() {
                     type="button"
                     key={variant.code}
                     onClick={() => selectVariant(variant.code)}
-                    className={`relative w-20 shrink-0 overflow-hidden border-2 bg-[#e9e8e4] transition-colors sm:w-24 ${index === activeIndex ? "border-black" : "border-transparent hover:border-black/40"}`}
+                    className={`relative w-20 shrink-0 overflow-hidden border-2 bg-white transition-colors sm:w-24 ${index === activeIndex ? "border-black" : "border-transparent hover:border-black/40"}`}
                     aria-label={`Lihat warna ${variant.color}`}
                     aria-pressed={index === activeIndex}
                     data-testid={`product-gallery-thumbnail-${index + 1}`}

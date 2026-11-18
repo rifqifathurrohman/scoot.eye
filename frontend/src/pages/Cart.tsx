@@ -171,7 +171,7 @@ export default function Cart() {
                     >
                       <Link
                         to={`/produk/${item.productId}/`}
-                        className="block self-start bg-[#e9e8e4]"
+                        className="block self-start border border-black/10 bg-white"
                         aria-label={`Lihat ${item.name}`}
                       >
                         <img

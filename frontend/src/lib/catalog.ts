@@ -36,8 +36,16 @@ export interface CartItem {
 export const CUSTOM_PRINT_PRICE = 15000;
 export const WHATSAPP_NUMBER = "6285156581959";
 
-const image = (folder: string, file: string) =>
-  `/Belisima%20series/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+// Originals live in public/Belisima series; scripts/normalize_products.py writes trimmed,
+// centred 1000×1000 copies to public/catalog so every frame shows at the same scale.
+const slug = (name: string) =>
+  name
+    .replace(/\.[^.]+$/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const image = (folder: string, file: string) => `/catalog/${slug(folder)}/${slug(file)}.webp`;
 
 const colorNames: Record<string, string> = {
   BB: "Hitam", BL: "Hitam", BR: "Cokelat", BG: "Hijau Gelap",

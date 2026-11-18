@@ -53,7 +53,7 @@ export default function ProductCard({
     <article className="group" data-testid={`product-card-${product.id}`}>
       <Link
         to={detailHref}
-        className="relative block overflow-hidden bg-[#e9e8e4]"
+        className="relative block overflow-hidden bg-white"
         data-testid={`product-image-link-${product.id}`}
       >
         <div
@@ -65,7 +65,7 @@ export default function ProductCard({
         <img
           src={cardImage}
           alt={`Kacamata model ${product.name}`}
-          className={`aspect-[4/5] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] ${
+          className={`aspect-square w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.06] ${
             inStock === 0 ? "grayscale" : ""
           }`}
           loading="lazy"
