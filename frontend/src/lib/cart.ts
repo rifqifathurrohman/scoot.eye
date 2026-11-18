@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { CartItem } from "./catalog";
 
 export const CART_STORAGE_KEY = "scoot-eyewear-cart";
-const CART_EVENT = "scoot-cart-updated";
+export const CART_EVENT = "scoot-cart-updated";
 
 export function readCart(): CartItem[] {
   try {
@@ -19,25 +19,35 @@ export function writeCart(items: CartItem[]) {
 }
 
 export function addCartItem(item: CartItem) {
+  if ((item.stock ?? 0) <= 0) return false;
   const current = readCart();
   const existingIndex = current.findIndex(
     (existing) =>
       existing.productId === item.productId &&
-      existing.color === item.color &&
+      existing.variantCode === item.variantCode &&
       existing.customPrint === item.customPrint &&
       existing.customText === item.customText &&
       existing.note === item.note,
   );
   if (existingIndex >= 0) {
-    current[existingIndex] = { ...current[existingIndex], quantity: current[existingIndex].quantity + item.quantity };
+    const stock = item.stock ?? current[existingIndex].stock ?? 0;
+    const quantity = Math.min(stock, current[existingIndex].quantity + item.quantity);
+    current[existingIndex] = { ...current[existingIndex], stock, quantity };
   } else {
-    current.push(item);
+    current.push({ ...item, quantity: Math.min(item.stock ?? 0, item.quantity) });
   }
   writeCart(current);
+  return true;
 }
 
 export function updateCartItem(id: string, quantity: number) {
-  const next = readCart().map((item) => (item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item));
+  const next = readCart().map((item) => {
+    if (item.id !== id) return item;
+    const stock = item.stock ?? 0;
+    return stock <= 0
+      ? item
+      : { ...item, quantity: Math.min(stock, Math.max(1, quantity)) };
+  });
   writeCart(next);
 }
 

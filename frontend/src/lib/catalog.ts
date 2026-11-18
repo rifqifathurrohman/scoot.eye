@@ -1,8 +1,16 @@
+export interface ProductVariant {
+  code: string;
+  color: string;
+  stock: number;
+  image: string;
+}
+
 export interface Product {
   id: string;
   name: string;
   price: number;
   colors: string[];
+  variants: ProductVariant[];
   description: string;
   images: string[];
   collection: string;
@@ -15,6 +23,8 @@ export interface CartItem {
   name: string;
   image: string;
   color: string;
+  variantCode?: string;
+  stock?: number;
   price: number;
   quantity: number;
   customPrint: boolean;
@@ -25,116 +35,204 @@ export interface CartItem {
 
 export const CUSTOM_PRINT_PRICE = 15000;
 export const WHATSAPP_NUMBER = "6285156581959";
-const REFERENCE_ASSET = "https://ftreyewear-fas8dpd2.manus.space";
 
-const gallery = (slug: string, files: number[]) =>
-  files.map((file) => `${REFERENCE_ASSET}/assets/products/${slug}/${slug}-${String(file).padStart(2, "0")}.webp`);
+const image = (folder: string, file: string) =>
+  `/Belisima%20series/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+
+const colorNames: Record<string, string> = {
+  BB: "Hitam", BL: "Hitam", BR: "Cokelat", BG: "Hijau Gelap",
+  BO: "Hitam/Oranye", COBI: "Cokelat", GI: "Cokelat", LD: "Cokelat Muda",
+  WD: "Cokelat Kayu", TI: "Cokelat", TP: "Cokelat", PK: "Pink",
+  LB: "Hitam", LG: "Cokelat", LT: "Cokelat", BC: "Cokelat",
+  BP: "Hitam/Pink", LC: "Cokelat Muda", PC: "Pink Cokelat", PP: "Pink Muda",
+  RB: "Merah Cokelat", RC: "Merah Cokelat", TC: "Tortoise Cokelat",
+  BY: "Hitam/Kuning", GG: "Hijau", OR: "Oranye", WH: "Putih",
+  HW: "Hitam", ST: "Kuning", CL: "Putih", TB: "Putih",
+  TG: "Tortoise Hijau", TT: "Tortoise", GR: "Hijau",
+};
+
+const variant = (
+  code: string,
+  stock: number,
+  folder: string,
+  file: string,
+  colorName?: string,
+): ProductVariant => ({
+  code,
+  color: colorName ?? colorNames[code] ?? code,
+  stock,
+  image: image(folder, file),
+});
+
+export const getProductStock = (product: Product) =>
+  product.variants.reduce((total, item) => total + item.stock, 0);
+
+export const getAvailableVariants = (product: Product) =>
+  product.variants.filter((item) => item.stock > 0);
+
+export const getVariantByCode = (product: Product, code: string) =>
+  product.variants.find((item) => item.code === code);
 
 export const products: Product[] = [
   {
-    id: "brill",
-    name: "Brill",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Kacamata Brill untuk melengkapi gaya harian dengan pilihan warna seperti yang terlihat pada galeri foto.",
-    images: gallery("brill", [1, 2, 3, 4, 5]),
-    collection: "SCOOT ORIGINALS",
-    index: "01",
+    id: "brill", name: "Brill", price: 100000,
+    colors: ["BL", "LD", "PK", "TI", "TP"],
+    variants: [
+      variant("BL", 34, "A _ Brill", "BRILL BL.JPG", "Hitam"),
+      variant("LD", 26, "A _ Brill", "BRILL LD.JPG", "Leopard"),
+      variant("PK", 20, "A _ Brill", "BRILL PK.JPG", "Pink"),
+      variant("TI", 25, "A _ Brill", "BRILL TI.JPG", "Cokelat"),
+      variant("TP", 7, "A _ Brill", "BRILL TP.JPG", "Putih"),
+    ],
+    description: "Model Brill dari Belisima Series.",
+    images: [image("A _ Brill", "BRILL BL.JPG")], collection: "BELISIMA SERIES", index: "01",
   },
   {
-    id: "ocala",
-    name: "Ocala",
-    price: 100000,
-    colors: ["Putih/Krem"],
-    description: "Koleksi Ocala menampilkan pilihan tampilan warna yang dapat dilihat langsung pada galeri produk.",
-    images: gallery("ocala", [1, 2, 3, 4, 5, 7, 8, 9]),
-    collection: "SCOOT ORIGINALS",
-    index: "02",
+    id: "ocala", name: "Ocala", price: 100000,
+    colors: ["BB", "BG", "BL", "BR", "COBI", "GI", "LD", "TI", "WD"],
+    variants: [
+      variant("BB", 22, "B _ Ocala", "OCALA BB.JPG"), variant("BG", 0, "B _ Ocala", "OCALA BG.JPG"),
+      variant("BL", 4, "B _ Ocala", "OCALA BL.JPG"), variant("BR", 0, "B _ Ocala", "OCALA BR.JPG"),
+      variant("COBI", 0, "B _ Ocala", "OCALA COBI.jpeg"), variant("GI", 20, "B _ Ocala", "OCALA  GI.JPG"),
+      variant("LD", 28, "B _ Ocala", "OCALA LD.JPG", "Leopard"), variant("TI", 0, "B _ Ocala", "OCALA TI.JPG"),
+      variant("WD", 22, "B _ Ocala", "OCALA WD.JPG"),
+    ],
+    description: "Model Ocala dari Belisima Series.",
+    images: [image("B _ Ocala", "OCALA BB.JPG")], collection: "BELISIMA SERIES", index: "02",
   },
   {
-    id: "casama",
-    name: "Casama",
-    price: 110000,
-    colors: ["Hitam"],
-    description: "Casama hadir sebagai model dengan harga khusus koleksi. Lihat variasi warna dan tampilan pada foto produk.",
-    images: gallery("casama", [1, 2, 3, 4, 5, 6, 7, 8]),
-    collection: "SCOOT ORIGINALS",
-    index: "03",
+    id: "casama", name: "Casama", price: 110000,
+    colors: ["BL", "BR", "LB", "LD", "LG", "LT", "TI"],
+    variants: [
+      variant("BL", 0, "C _ casama", "CASAMA BL .JPG"),
+      variant("BR", 19, "C _ casama", "CASAMA BR.JPG", "Hitam — Kaca Kuning"),
+      variant("LB", 39, "C _ casama", "CASAMA LB.JPG"),
+      variant("LD", 4, "C _ casama", "CASAMA LD.JPG", "Leopard"),
+      variant("LG", 68, "C _ casama", "CASAMA LG.JPG", "Leopard"),
+      variant("LT", 0, "C _ casama", "CASAMA LT.JPG"),
+      variant("TI", 20, "C _ casama", "CASAMA TI.JPG"),
+    ],
+    description: "Model Casama dari Belisima Series.",
+    images: [image("C _ casama", "CASAMA BL .JPG")], collection: "BELISIMA SERIES", index: "03",
   },
   {
-    id: "brazz",
-    name: "Brazz",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Temukan tampilan Brazz melalui foto-foto koleksi dan pilih opsi polos atau custom print.",
-    images: gallery("brazz", [1, 2, 3, 4, 6, 7, 8, 9, 10]),
-    collection: "SCOOT ORIGINALS",
-    index: "04",
+    id: "brazz", name: "Brazz", price: 100000,
+    colors: ["BB", "BL", "BO", "BR", "GR", "LB", "LD", "TG", "TP"],
+    variants: [
+      variant("BB", 0, "D _ Brazz", "Brazz BB.JPG"), variant("BL", 16, "D _ Brazz", "Brazz BL.JPG"),
+      variant("BO", 0, "D _ Brazz", "Brazz BO.JPG"), variant("BR", 39, "D _ Brazz", "Brazz BR.JPG"),
+      variant("GR", 0, "D _ Brazz", "Brazz GR.JPG"), variant("LB", 0, "D _ Brazz", "Brazz LB.JPG"),
+      variant("LD", 36, "D _ Brazz", "Brazz LD.JPG", "Leopard"), variant("TG", 0, "D _ Brazz", "Brazz TG.JPG"),
+      variant("TP", 0, "D _ Brazz", "Brazz TP.JPG"),
+    ],
+    description: "Model Brazz dari Belisima Series.",
+    images: [image("D _ Brazz", "Brazz BB.JPG")], collection: "BELISIMA SERIES", index: "04",
   },
   {
-    id: "duble",
-    name: "Duble",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Koleksi Duble menampilkan beberapa pilihan tampilan warna sebagaimana terlihat pada galeri produk.",
-    images: gallery("duble", Array.from({ length: 12 }, (_, i) => i + 1)),
-    collection: "SCOOT ORIGINALS",
-    index: "05",
+    id: "duble", name: "Duble", price: 100000,
+    colors: ["BC", "BL", "BP", "BR", "LB", "LC", "PC", "PP", "RB", "RC", "TC", "TI"],
+    variants: [
+      variant("BC", 0, "E _ duble", "DUBLE BC.JPG"), variant("BL", 79, "E _ duble", "DUBLE BL.JPG", "Hitam"),
+      variant("BP", 23, "E _ duble", "DUBLE BP.JPG", "Hitam — Kaca Jernih"), variant("BR", 39, "E _ duble", "DUBLE BR.JPG"),
+      variant("LB", 16, "E _ duble", "DUBLE LB.JPG", "Leopard"), variant("LC", 0, "E _ duble", "DUBLE LC.JPG"),
+      variant("PC", 0, "E _ duble", "DUBLE PC.JPG"), variant("PP", 30, "E _ duble", "DUBLE PP.JPG"),
+      variant("RB", 0, "E _ duble", "DUBLE RB.JPG"), variant("RC", 0, "E _ duble", "DUBLE RC.JPG"),
+      variant("TC", 23, "E _ duble", "DUBLE TC.JPG"), variant("TI", 0, "E _ duble", "DUBLE TI.JPG"),
+    ],
+    description: "Model Duble dari Belisima Series.",
+    images: [image("E _ duble", "DUBLE BL.JPG")], collection: "BELISIMA SERIES", index: "05",
   },
   {
-    id: "kurera",
-    name: "Kurera",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Kurera memberi pilihan gaya personal yang dapat dilihat melalui foto-foto produk yang tersedia.",
-    images: gallery("kurera", Array.from({ length: 9 }, (_, i) => i + 1)),
-    collection: "SCOOT ORIGINALS",
-    index: "06",
+    id: "kurera", name: "Kurera", price: 100000,
+    colors: ["BB", "BG", "BL", "BR", "BY", "GG", "OR", "TP", "WH"],
+    variants: [
+      variant("BB", 0, "F _ kurera", "KUKERA BB.JPG"), variant("BG", 32, "F _ kurera", "KUKERA BG.JPG"),
+      variant("BL", 47, "F _ kurera", "KUKERA BL.JPG"),
+      variant("BR", 48, "F _ kurera", "KUKERA BR.JPG", "Merah"),
+      variant("BY", 0, "F _ kurera", "KUKERA BY.JPG"), variant("GG", 0, "F _ kurera", "KUKERA GG.JPG"),
+      variant("OR", 0, "F _ kurera", "KUKERA OR.JPG"), variant("TP", 0, "F _ kurera", "KUKERA TP.JPG"),
+      variant("WH", 0, "F _ kurera", "KUKERA WH.JPG"),
+    ],
+    description: "Model Kurera dari Belisima Series.",
+    images: [image("F _ kurera", "KUKERA BL.JPG")], collection: "BELISIMA SERIES", index: "06",
   },
   {
-    id: "tropic",
-    name: "Tropic",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Jelajahi koleksi Tropic dan pilihan warna yang ditampilkan pada foto produk.",
-    images: gallery("tropic", Array.from({ length: 11 }, (_, i) => i + 1)),
-    collection: "SCOOT ORIGINALS",
-    index: "07",
+    id: "tropic", name: "Tropic", price: 100000,
+    colors: ["BB", "BL", "BP", "BR", "BY", "HW", "LD", "PK", "WH"],
+    variants: [
+      variant("BB", 0, "G _ tropic", "TROPIC BB.jpeg"), variant("BL", 0, "G _ tropic", "TROPIC BL.JPG"),
+      variant("BP", 0, "G _ tropic", "TROPIC BP.JPG"), variant("BR", 14, "G _ tropic", "TROPIC BR.jpeg"),
+      variant("BY", 0, "G _ tropic", "TROPIC BY.JPG"), variant("HW", 0, "G _ tropic", "TROPIC HW.JPG"),
+      variant("LD", 0, "G _ tropic", "TROPIC LD.JPG"), variant("PK", 0, "G _ tropic", "TROPIC PK.JPG"),
+      variant("WH", 0, "G _ tropic", "TROPIC WH.JPG"),
+    ],
+    description: "Model Tropic dari Belisima Series.",
+    images: [image("G _ tropic", "TROPIC BL.JPG")], collection: "BELISIMA SERIES", index: "07",
   },
   {
-    id: "satvale",
-    name: "Satvale",
-    price: 100000,
-    colors: ["Biru"],
-    description: "Lihat tampilan Satvale melalui galeri foto, lalu pilih produk polos atau tambahkan custom print.",
-    images: gallery("satvale", Array.from({ length: 7 }, (_, i) => i + 1)),
-    collection: "SCOOT ORIGINALS",
-    index: "08",
+    id: "satvale", name: "Satvale", price: 100000,
+    colors: ["BB", "BG", "BL", "LD", "ST", "TI", "WH"],
+    variants: [
+      variant("BB", 29, "H _ SATVALE", "SATVALE BB.JPG", "Biru"),
+      variant("BG", 0, "H _ SATVALE", "SATVALE BG.JPG"),
+      variant("BL", 20, "H _ SATVALE", "SATVALE BL.JPG", "Hitam"),
+      variant("LD", 0, "H _ SATVALE", "SATVALE LD.JPG"),
+      variant("ST", 15, "H _ SATVALE", "SATVALE ST.JPG"),
+      variant("TI", 0, "H _ SATVALE", "SATVALE TI.JPG"),
+      variant("WH", 20, "H _ SATVALE", "SATVALE WH.JPG"),
+    ],
+    description: "Model Satvale dari Belisima Series.",
+    images: [image("H _ SATVALE", "SATVALE BB.JPG")], collection: "BELISIMA SERIES", index: "08",
   },
   {
-    id: "fourty",
-    name: "Fourty",
-    price: 100000,
-    colors: ["Hitam"],
-    description: "Fourty tersedia dengan pilihan tampilan seperti yang terlihat pada galeri foto produk.",
-    images: gallery("fourty", Array.from({ length: 7 }, (_, i) => i + 1)),
-    collection: "SCOOT ORIGINALS",
-    index: "09",
+    id: "fourty", name: "Fourty", price: 100000,
+    colors: ["BL", "CL", "LD", "TB", "TG", "TP", "TT"],
+    variants: [
+      variant("BL", 35, "I _ FOURTY", "FOURTY BL.JPG"), variant("CL", 25, "I _ FOURTY", "FOURTY CL.JPG"),
+      variant("LD", 0, "I _ FOURTY", "FOURTY LD.JPG"), variant("TB", 28, "I _ FOURTY", "FOURTY TB.JPG"),
+      variant("TG", 0, "I _ FOURTY", "FOURTY TG.JPG"), variant("TP", 0, "I _ FOURTY", "FOURTY TP.JPG"),
+      variant("TT", 0, "I _ FOURTY", "FOURTY TT.JPG"),
+    ],
+    description: "Model Fourty dari Belisima Series.",
+    images: [image("I _ FOURTY", "FOURTY BL.JPG")], collection: "BELISIMA SERIES", index: "09",
   },
 ];
 
 export const campaignImages = [
-  `${REFERENCE_ASSET}/manus-storage/campaign-maroon_2b77d7cf.webp`,
-  `${REFERENCE_ASSET}/manus-storage/campaign-red-frame_ae537b5b.webp`,
-  `${REFERENCE_ASSET}/manus-storage/campaign-neon_3b036a8c.webp`,
+  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-maroon_2b77d7cf.webp",
+  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-red-frame_ae537b5b.webp",
+  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-neon_3b036a8c.webp",
 ];
 
 export const galleryImages = [
-  { src: `${REFERENCE_ASSET}/assets/products/ocala/ocala-07.webp`, label: "01 / OCALA" },
-  { src: `${REFERENCE_ASSET}/assets/products/brazz/brazz-05.webp`, label: "02 / BRAZZ" },
-  { src: `${REFERENCE_ASSET}/assets/products/tropic/tropic-06.webp`, label: "03 / TROPIC" },
+  { src: image("B _ Ocala", "OCALA LD.JPG"), label: "01 / OCALA" },
+  { src: image("D _ Brazz", "Brazz LD.JPG"), label: "02 / BRAZZ" },
+  { src: image("G _ tropic", "TROPIC BR.jpeg"), label: "03 / TROPIC" },
 ];
 
 export const formatPrice = (price: number) => `Rp${new Intl.NumberFormat("id-ID").format(price)}`;
-
 export const productById = (id: string | undefined) => products.find((product) => product.id === id);
+
+// Always build wa.me links through here so free text (names, addresses, "&", "#") is encoded.
+export const whatsappUrl = (text?: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+
+// Older cart entries stored the variant code (e.g. "BL") as the color; resolve it to a readable name.
+export const cartItemColor = (item: Pick<CartItem, "productId" | "variantCode" | "color">) => {
+  const product = productById(item.productId);
+  const variantItem = product && item.variantCode ? getVariantByCode(product, item.variantCode) : undefined;
+  return variantItem?.color ?? item.color;
+};
+export const getDominantFrameColor = (colorName: string) => {
+  const name = colorName.toLowerCase();
+  if (name.includes("cokelat")) return "Cokelat";
+  if (name.includes("biru")) return "Biru";
+  if (name.includes("hijau")) return "Hijau";
+  if (name.includes("pink")) return "Pink";
+  if (name.includes("oranye") || name.includes("orange")) return "Oranye";
+  if (name.includes("merah")) return "Merah";
+  if (name.includes("putih") || name.includes("cream") || name.includes("krem")) return "Putih/Krem";
+  if (name.includes("tortoise") || name.includes("smoke") || name.includes("abu") || name.includes("abu-abu")) return name.includes("tortoise") ? "Tortoise" : "Abu-abu/Smoke";
+  if (name.includes("hitam") || name.includes("black")) return "Hitam";
+  return colorName;
+};
