@@ -92,3 +92,4 @@ android-sdk/
 # Instagram post build intermediates (regenerate with marketing/instagram/*.py)
 marketing/instagram/assets/cutouts/
 marketing/instagram/html/
+marketing/brand/.build/
