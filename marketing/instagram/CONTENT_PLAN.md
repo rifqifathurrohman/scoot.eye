@@ -6,55 +6,109 @@ Rp120.000 (Casama Rp130.000). Website berganti otomatis. **Warna grafir utama: p
 Format semua post: feed 4:5 (1080×1350). Visual ada di `export/`, sumber desain di `build_posts.py`
 (gaya mengikuti konsep Canva "SCOOT Ig Post"). Jam dalam WIB (Asia/Jakarta).
 
-Metricool belum punya data "best time" karena akun baru, jadi jadwal memakai jam ramai umum
-Instagram Indonesia: **12.00** (istirahat siang) dan **19.00** (malam).
+Metricool belum punya data "best time" karena akun baru, jadi jam tayang memakai perkiraan puncak audiens
+Instagram Indonesia usia 18–30: **11.00–13.00** (istirahat siang), **16.00–18.00** (pulang sekolah/kerja), dan
+**19.00–21.00** (paling ramai). Akhir pekan, puncak pagi maju ke 10.00–11.00. Setelah ±7 hari, cek Metricool →
+Analytics → Instagram dan geser jam ke data asli akunmu.
 
-| # | Hari | Jam | Post | File |
-|---|------|-----|------|------|
-| 1 | Jum, 20 Nov | 19.00 | Launch — carousel 5 slide | `01-launch-1…5` |
-| 2 | Sab, 21 Nov | 12.00 | Ocala · 5 warna | `02-ocala-collection` |
-| 3 | Min, 22 Nov | 19.00 | Custom print · 4 langkah | `03-custom-steps` |
-| 4 | Sen, 23 Nov* | 19.00 | Shopee store sudah buka | `04-shopee` |
-| 5 | Sel, 24 Nov | 19.00 | Spotlight Kurera | `05-kurera-vintage-soul` |
-| 6 | Rab, 25 Nov | 12.00 | Grosir 100+ pcs | `06-wholesale` |
-| 7 | Kam, 26 Nov | 19.00 | Spotlight Satvale | `07-satvale-colorful-culture` |
+Strategi: **post tunggal (bukan carousel)**, 2–3 post per hari di minggu pertama. Untuk akun baru, lebih banyak
+post tunggal = lebih banyak kesempatan masuk feed & Explore. Semua sudah terjadwal di Metricool (auto-publish).
 
-\* Post Shopee hanya diposting setelah toko benar-benar aktif dan link-nya sudah ada di bio.
-Kalau verifikasi Shopee lebih lama, tukar urutannya dengan post #5 atau #6.
+| Hari | Jam | Post | File |
+|------|-----|------|------|
+| **Kam, 19 Nov (launch)** | 11.30 | Cover "officially launching" | `01-launch-1-cover` |
+| | 16.30 | Cerita brand "Not just another pair" | `01-launch-2-story` |
+| | 20.00 | Lineup 9 model Belisima | `01-launch-3-lineup` |
+| Jum, 20 Nov | 11.00 | Ocala · 5 warna | `02-ocala-collection` |
+| | 19.30 | Make it yours (grafir putih) | `01-launch-4-custom` |
+| Sab, 21 Nov | 10.30 | Where to shop | `01-launch-5-order` |
+| | 19.30 | Custom print · 4 langkah | `03-custom-steps` |
+| Min, 22 Nov* | — | Shopee store sudah buka (belum dijadwalkan) | `04-shopee` |
+| Sen, 23 Nov | 19.30 | Spotlight Kurera | `05-kurera-vintage-soul` |
+| Sel, 24 Nov | 12.00 | Grosir 100+ pcs | `06-wholesale` |
+| Rab, 25 Nov | 19.30 | Spotlight Satvale | `07-satvale-colorful-culture` |
 
-**Sebelum launch:** pasang link di bio (website, atau Linktree berisi Website · WhatsApp · Shopee),
-dan sematkan (pin) post launch di profil.
+\* Post Shopee dijadwalkan setelah toko benar-benar aktif dan link-nya sudah ada di bio.
+
+**Sebelum post pertama (Kam 11.30):** pasang link di bio (website, atau Linktree berisi Website · WhatsApp ·
+Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan lineup di profil.
 
 ---
 
-## 1 · Launch carousel — Jum 20 Nov, 19.00
-
-Slide: cover "officially launching" → cerita brand → 9 model Belisima → custom print → cara order.
-
-**Caption**
+## 1a · Cover — Kam 19 Nov, 11.30
 
 > Officially launching: SCOOT Eyewear. 🏁
 >
-> Lahir dari kultur skuter vintage dan semangat untuk tampil beda. Kacamata ini bukan sekadar aksesori. Ini caramu bilang siapa dirimu.
+> Hari ini kami resmi hadir. Kacamata independen yang lahir dari kultur skuter vintage, untuk kamu yang mau tampil beda.
 >
-> ▫️ 9 model Belisima Series. Harga opening Rp100.000 (normal Rp120.000), berlaku s/d 29 Nov
-> ▫️ Custom grafir putih di gagang: nama, inisial, atau logo kecil (+Rp15.000/pcs)
-> ▫️ Order via website & WhatsApp. Shopee segera hadir.
+> Harga opening mulai Rp100.000 (normal Rp120.000), cuma s/d 29 Nov.
 >
-> Geser untuk lihat semua modelnya →
-> Model mana yang paling "kamu banget"? Tulis di komentar 👇
+> Nyalakan notifikasi, hari ini ada 3 drop! 🔔
 >
 > Ride your own style.
 > 🔗 Link di bio
 
-**Komentar pertama (hashtag)**
-`#scooteyewear #rideyourownstyle #kacamata #kacamatafashion #sunglasses #sunglassesindonesia #eyewearindonesia #localbrandindonesia #kacamatacustom #scooterculture`
+**Hashtag:** `#scooteyewear #rideyourownstyle #kacamata #kacamatafashion #sunglasses #sunglassesindonesia #eyewearindonesia #localbrandindonesia #kacamatacustom #scooterculture`
 
-**Alt text:** Tiga kacamata Brill (abu-abu muda, hitam, leopard) dengan tulisan "officially launching — Ride Your Own Style".
+## 1b · Cerita brand — Kam 19 Nov, 16.30 (label AI aktif)
+
+> Not just another pair of sunglasses.
+>
+> SCOOT lahir dari jalanan: kultur skuter vintage, streetwear independen, dan kebebasan berekspresi. Setiap frame dibuat supaya kamu bisa bilang siapa dirimu tanpa banyak kata.
+>
+> Independent · Timeless · Custom
+>
+> Kamu pakai kacamata buat gaya, buat nyaman, atau dua-duanya? 👇
+>
+> 🔗 Link di bio
+
+**Hashtag:** `#scooteyewear #rideyourownstyle #localbrandindonesia #streetwearindonesia #scooterculture #vintagestyle #kacamatafashion`
+
+## 1c · Lineup — Kam 19 Nov, 20.00
+
+> 9 model. 1 series. 🕶️
+>
+> Kenalan sama Belisima Series: Brill, Ocala, Casama, Brazz, Duble, Kurera, Tropic, Satvale, Fourty.
+>
+> Harga opening Rp100.000 (normal Rp120.000), s/d 29 Nov.
+>
+> Sebut model favoritmu di komentar, besok kami spill detailnya 👀
+>
+> 🔗 Lihat semua warna lewat link di bio
+
+**Hashtag:** `#scooteyewear #belisimaseries #kacamata #kacamatafashion #sunglassesindonesia #localbrandindonesia #ootdindonesia #rideyourownstyle`
+
+## 1d · Make it yours — Jum 20 Nov, 19.30
+
+> Make it yours. ✍️
+>
+> Grafir nama, inisial, atau logo kecil di gagang kacamatamu, dengan warna putih yang bersih dan kontras.
+>
+> +Rp15.000/pcs, sudah termasuk pouch hitam & box cokelat.
+>
+> Kalau bisa grafir apa aja, kamu mau tulis apa di kacamatamu? Komen di bawah 👇
+>
+> 🔗 Coba preview-nya di website (link di bio)
+
+**Hashtag:** `#scooteyewear #kacamatacustom #customprint #makeityours #kadounik #personalized #rideyourownstyle`
+
+## 1e · Where to shop — Sab 21 Nov, 10.30
+
+> Where to shop? 🛒
+>
+> 🌐 Website: katalog lengkap & preview custom (link di bio)
+> 💬 WhatsApp: 0851 5658 1959, tanya model, custom & grosir
+> 🧡 Shopee: segera hadir
+>
+> Harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov. Jangan sampai kelewatan!
+>
+> Simpan post ini biar gampang dicari lagi 📌
+
+**Hashtag:** `#scooteyewear #rideyourownstyle #kacamata #sunglassesindonesia #localbrandindonesia #belanjaonline`
 
 ---
 
-## 2 · Ocala, 5 warna — Sab 21 Nov, 12.00
+## 2 · Ocala, 5 warna — Jum 20 Nov, 11.00
 
 > 1 model, 5 mood. 🕶️
 >
@@ -72,7 +126,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ---
 
-## 3 · Custom print, 4 langkah — Min 22 Nov, 19.00
+## 3 · Custom print, 4 langkah — Sab 21 Nov, 19.30
 
 > Kacamatamu, tanda tanganmu. ✍️
 >
@@ -93,7 +147,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ---
 
-## 4 · Shopee store — Sen 23 Nov, 19.00 (setelah toko aktif)
+## 4 · Shopee store — setelah toko aktif (belum dijadwalkan)
 
 > Sekarang SCOOT Eyewear juga ada di Shopee! 🧡
 >
@@ -111,7 +165,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ---
 
-## 5 · Kurera — Sel 24 Nov, 19.00
+## 5 · Kurera — Sen 23 Nov, 19.30 (label AI aktif)
 
 > Vintage soul. Modern vision.
 >
@@ -127,7 +181,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ---
 
-## 6 · Grosir 100+ pcs — Rab 25 Nov, 12.00
+## 6 · Grosir 100+ pcs — Sel 24 Nov, 12.00
 
 > Satu komunitas, satu gaya. 🛵
 >
@@ -143,7 +197,7 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ---
 
-## 7 · Satvale — Kam 26 Nov, 19.00
+## 7 · Satvale — Rab 25 Nov, 19.30
 
 > Colorful culture. Your own way. 🌈
 >
@@ -162,13 +216,13 @@ Slide: cover "officially launching" → cerita brand → 9 model Belisima → cu
 
 ## Story harian (opsional, tidak perlu desain khusus)
 
-- **Jum 20:** repost post launch + stiker countdown "Shopee store".
-- **Sab–Min:** polling stiker "Ocala hitam atau leopard?", lalu screen-record preview custom di website.
+- **Kam 19:** repost tiap post launch ke story + stiker countdown "Shopee store".
+- **Jum–Sab:** polling stiker "Ocala hitam atau leopard?", lalu screen-record preview custom di website.
 - **Sen 23:** stiker link ke toko Shopee.
 - **Setiap hari:** balas DM/komentar < 1 jam di minggu pertama. Engagement awal sangat menentukan jangkauan akun baru.
 
 ## Perlu dicek sebelum posting
 
-1. **Label AI.** Post #1 (slide 2) dan #5 memakai foto kampanye. Kalau foto itu hasil AI, centang label "AI info" di Instagram (atau `isAiGenerated` di Metricool).
+1. **Label AI.** Post 1b (cerita brand) dan #5 (Kurera) memakai foto kampanye; label AI sudah aktif di Metricool. Kalau foto itu hasil AI, centang label "AI info" di Instagram (atau `isAiGenerated` di Metricool).
 2. **Data warna.** Jumlah warna ready mengikuti stok di website saat ini. Sesuaikan kalau stok berubah.
-3. **Promo opening.** Semua post 20–26 Nov memuat harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov. Kalau ada post setelah 29 Nov, pakai harga normal.
+3. **Promo opening.** Semua post 19–25 Nov memuat harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov. Kalau ada post setelah 29 Nov, pakai harga normal.
