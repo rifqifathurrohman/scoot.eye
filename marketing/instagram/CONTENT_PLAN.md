@@ -288,7 +288,7 @@ dan cukup 3 hashtag di akhir teks; versi Instagram tetap "link di bio" + hashtag
 | | 19.30 | **Just dropped · Fourty** (latar gelap) | `week2/13-fourty-drop` | ✔ |
 | Rab, 25 Nov | 12.00 | **Which SCOOT are you? 02 · The Main Character** (Casama kaca kuning) | `week2/14-persona-main-character` | ✔ |
 | | 19.30 | Spotlight Satvale | `07-satvale-colorful-culture` | |
-| Kam, 26 Nov | 12.00 | **Details matter** (close-up grafir putih) | `week2/15-details-matter` | ✔ |
+| Kam, 26 Nov | 12.00 | **Details matter** (close-up grafir) | `week2/15-details-matter` | ✔ |
 | | 19.30 | **Which SCOOT are you? 03 · The Rider** (Brazz) | `week2/16-persona-rider` | ✔ |
 | Jum, 27 Nov | 12.00 | **Community wall vol. 01** (ajakan tag & repost) | `week2/17-community-wall` | ✔ |
 | | 19.30 | **Tinggal 2 hari lagi** (countdown promo) | `week2/18-countdown` | ✔ |
@@ -306,7 +306,7 @@ CUSTOM / OPENING sesuai isi.
 | Hari | Jam | Post | File |
 |------|-----|------|------|
 | Sab, 28 Nov | 10.30 | **This is the Last Weekend** | `week2/19-last-weekend` |
-| | 19.30 | **Kado yang personal** (grafir putih "FOR YOU · 2026", angle kado akhir tahun) | `week2/20-gift-idea` |
+| | 19.30 | **Kado yang personal** (grafir "FOR YOU · 2026", angle kado akhir tahun) | `week2/20-gift-idea` |
 | Min, 29 Nov | 12.00 | **Hari terakhir** · 100rb hari ini, 120rb mulai besok | `week2/21-last-day` |
 | | 20.00 | Story **"4 jam lagi"** (IG Story + FB Story) | `stories/s7-final-hours` |
 
