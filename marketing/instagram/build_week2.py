@@ -259,6 +259,41 @@ def story_final_hours():
 </div>""")
 
 
+# ---------------- Real custom results (customer photo) ----------------
+CUSTOM_PHOTO = uri("marketing/instagram/assets/custom/custom-results.png")
+CUSTOM_CROPS = [uri(f"marketing/instagram/assets/custom/{n}.png") for n in ("logo-yellow-blue", "logo-red-black", "logo-yellow-tortoise", "logo-red-lens")]
+
+
+def custom_results():
+    crops = "".join(f"<div style='border:2px solid #111;background:#fff;overflow:hidden'><img src='{c}' style='display:block;width:100%;aspect-ratio:1;object-fit:cover'></div>" for c in CUSTOM_CROPS)
+    return page(f"""
+<div class='abs' style='left:0;top:58px;width:520px;height:1292px;overflow:hidden;border-right:2px solid #111'>
+  <img src='{CUSTOM_PHOTO}' style='width:100%;height:100%;object-fit:cover;object-position:50% 50%'>
+  <div class='abs small' style='left:30px;top:34px;background:#111;color:#fff;padding:12px 18px;font-size:18px;letter-spacing:.16em'>Hasil custom asli</div>
+</div>
+<img class='logo' src='{LOGO}' style='left:574px;height:38px'>
+<div class='abs' style='left:574px;right:50px;top:200px'>
+  <div class='caps' style='font-size:20px;color:{MAROON}'>Custom print · logo</div>
+  <div class='sans' style='font-size:104px;margin-top:22px'>Logo<br>kamu,</div>
+  <div class='serif' style='font-size:96px;margin-top:4px'>di gagang.</div>
+</div>
+<div class='abs' style='left:574px;right:50px;top:640px;display:grid;grid-template-columns:1fr 1fr;gap:16px'>{crops}</div>
+<div class='abs copy' style='left:574px;right:50px;top:1110px;font-size:25px'>Logo komunitas, brand, atau simbol pribadimu, dicetak rapi di gagang.</div>
+<div class='abs' style='left:574px;bottom:54px'><div class='pill' style='padding:18px 34px;font-size:22px'>+Rp15.000/pcs</div></div>""")
+
+
+def story_custom_results():
+    import build_stories as bs
+    return bs.story(f"""
+<img class='abs' src='{CUSTOM_PHOTO}' style='left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1'>
+<img class='logo' src='{LOGO}' style='top:270px;left:54px;z-index:30;background:rgba(255,255,255,.85);padding:14px 20px;height:76px'>
+<div class='abs' style='left:54px;right:54px;top:1090px;z-index:30;background:#f3f3f1;border:2px solid #111;padding:44px 48px'>
+  <div class='caps' style='font-size:22px;color:{MAROON}'>Hasil custom asli</div>
+  <div class='sans' style='font-size:104px;margin-top:18px'>Logo kamu,</div><div class='serif' style='font-size:96px;margin-top:2px'>di gagang.</div>
+  <div class='copy' style='font-size:28px;margin-top:20px'>Kirim logomu via WhatsApp · +Rp15.000/pcs</div>
+</div>""")
+
+
 POSTS = {
     "08-stop-playing-safe": stop_playing_safe,
     "09-this-or-that": this_or_that,
@@ -274,6 +309,7 @@ POSTS = {
     "19-last-weekend": last_weekend,
     "20-gift-idea": gift_idea,
     "21-last-day": last_day,
+    "22-custom-results": custom_results,
 }
 
 
@@ -292,6 +328,7 @@ def main():
         print("rendered", png.relative_to(bp.ROOT))
     import build_stories as bs
     bs.render(story_final_hours(), "s7-final-hours", bs.OUT_STORY)
+    bs.render(story_custom_results(), "s8-custom-results", bs.OUT_STORY)
     print("rendered story s7-final-hours")
 
 

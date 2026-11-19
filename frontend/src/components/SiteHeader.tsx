@@ -59,7 +59,7 @@ export default function SiteHeader() {
 						onClick={() => setOpen(false)}
 						data-testid="brand-home-link"
 					>
-						<BrandMark compact className="max-w-[150px] sm:max-w-[190px]" />
+						<BrandMark to="" compact className="max-w-[150px] sm:max-w-[190px]" />
 					</Link>
 					<nav
 						className="hidden items-center gap-5 lg:flex"
