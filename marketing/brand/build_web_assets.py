@@ -1,8 +1,8 @@
 """Render favicons and the link-preview (Open Graph) image for the website.
 
 usage (from repo root): python marketing/brand/build_web_assets.py
-Writes into frontend/public/: favicon.svg, favicon.ico, favicon-16x16.png, favicon-32x32.png,
-apple-touch-icon.png, og-image.jpg. Needs Google Chrome and Pillow.
+Writes into frontend/public/: favicon.ico, favicon-16x16.png, favicon-32x32.png, icon-192.png, icon-512.png,
+apple-touch-icon.png (all from marketing/brand/favicon-source.png, the helmet mascot) and og-image.jpg. Needs Google Chrome and Pillow.
 """
 import subprocess
 from pathlib import Path
@@ -18,14 +18,6 @@ INTER = (ROOT / "frontend/node_modules/@fontsource-variable/inter/files/inter-la
 SERIF = (ROOT / "frontend/node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-italic.woff2").as_uri()
 LOGO = (PUBLIC / "scoot-eyewear-wordmark-dark.png").as_uri()
 PHOTO = (ROOT / "marketing/instagram/assets/campaign-maroon_2b77d7cf.webp").as_uri()
-
-# Square brand mark: bold "S" on black with the red dot used across the site.
-ICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0a0a0a"/>
-  <text x="29" y="47" text-anchor="middle" font-family="Space Grotesk, Arial Black, Arial, sans-serif" font-weight="700" font-size="46" fill="#ffffff" letter-spacing="-2">S</text>
-  <circle cx="49" cy="44" r="5" fill="#c8102e"/>
-</svg>
-"""
 
 OG_HTML = f"""<!doctype html><html><head><meta charset='utf-8'><style>
 @font-face {{ font-family: 'SG'; src: url('{FONT}') format('woff2'); font-weight: 300 700; }}
@@ -58,16 +50,13 @@ def chrome_png(html: Path, png: Path, w: int, h: int):
 
 def main():
     TMP.mkdir(parents=True, exist_ok=True)
-    (PUBLIC / "favicon.svg").write_text(ICON_SVG, encoding="utf-8")
-    icon_html = TMP / "icon.html"
-    icon_html.write_text(f"<!doctype html><html><head><style>@font-face{{font-family:'Space Grotesk';src:url('{FONT}') format('woff2');font-weight:300 700}}html,body{{margin:0;width:512px;height:512px;background:transparent}}svg{{width:512px;height:512px;display:block}}</style></head><body>{ICON_SVG}</body></html>", encoding="utf-8")
-    big = TMP / "icon-512.png"
-    chrome_png(icon_html, big, 512, 512)
-    icon = Image.open(big).convert("RGBA")
-    icon.resize((180, 180), Image.LANCZOS).save(PUBLIC / "apple-touch-icon.png")
-    icon.resize((32, 32), Image.LANCZOS).save(PUBLIC / "favicon-32x32.png")
-    icon.resize((16, 16), Image.LANCZOS).save(PUBLIC / "favicon-16x16.png")
-    icon.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    icon = Image.open(ROOT / "marketing/brand/favicon-source.png").convert("RGBA")
+    side = min(icon.size)
+    icon = icon.crop(((icon.width - side) // 2, (icon.height - side) // 2, (icon.width + side) // 2, (icon.height + side) // 2))
+    for name, size in [("icon-512.png", 512), ("icon-192.png", 192), ("apple-touch-icon.png", 180),
+                       ("favicon-32x32.png", 32), ("favicon-16x16.png", 16)]:
+        icon.resize((size, size), Image.LANCZOS).save(PUBLIC / name)
+    icon.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
     og_html = TMP / "og.html"
     og_html.write_text(OG_HTML, encoding="utf-8")
     og_png = TMP / "og.png"
