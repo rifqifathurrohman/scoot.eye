@@ -195,7 +195,7 @@ export const products: Product[] = [
       variant("WH", 0, "G _ tropic", "TROPIC WH.JPG"),
     ],
     description: "Model Tropic dari Belisima Series.",
-    images: [image("G _ tropic", "TROPIC BL.JPG")], collection: "BELISIMA SERIES", index: "07",
+    images: [image("G _ tropic", "TROPIC BL.JPG")], collection: "BELISIMA SERIES", index: "07", shopeeItemId: "45721933613",
   },
   {
     id: "satvale", name: "Satvale", price: 140000, openingPrice: 100000,
@@ -210,7 +210,7 @@ export const products: Product[] = [
       variant("WH", 20, "H _ SATVALE", "SATVALE WH.JPG"),
     ],
     description: "Model Satvale dari Belisima Series.",
-    images: [image("H _ SATVALE", "SATVALE BB.JPG")], collection: "BELISIMA SERIES", index: "08",
+    images: [image("H _ SATVALE", "SATVALE BB.JPG")], collection: "BELISIMA SERIES", index: "08", shopeeItemId: "55371898652",
   },
   {
     id: "fourty", name: "Fourty", price: 120000, openingPrice: 100000,
@@ -222,7 +222,7 @@ export const products: Product[] = [
       variant("TT", 0, "I _ FOURTY", "FOURTY TT.JPG"),
     ],
     description: "Model Fourty dari Belisima Series.",
-    images: [image("I _ FOURTY", "FOURTY BL.JPG")], collection: "BELISIMA SERIES", index: "09",
+    images: [image("I _ FOURTY", "FOURTY BL.JPG")], collection: "BELISIMA SERIES", index: "09", shopeeItemId: "40536876030",
   },
 ];
 
