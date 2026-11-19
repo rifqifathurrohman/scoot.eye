@@ -5,7 +5,6 @@ export interface CustomDraft {
   text: string;
   fileName: string;
   fontLabel: string;
-  finishLabel: string;
 }
 
 export function saveCustomDraft(draft: CustomDraft) {

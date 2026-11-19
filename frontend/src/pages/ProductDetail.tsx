@@ -52,7 +52,7 @@ export default function ProductDetail() {
   const [customText, setCustomText] = useState(draft?.text ?? "");
   const [fileName, setFileName] = useState(draft?.fileName ?? "");
   const [note, setNote] = useState(
-    draft ? `Gaya huruf: ${draft.fontLabel}. Warna grafir: ${draft.finishLabel}.` : "",
+    draft ? `Gaya huruf: ${draft.fontLabel}.` : "",
   );
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(() => initialColorFor(product));

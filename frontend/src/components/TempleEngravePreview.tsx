@@ -26,42 +26,14 @@ const FONTS = [
   { id: "mono", label: "Mono", className: "font-mono font-bold uppercase tracking-[0.16em]" },
 ] as const;
 
-const FINISHES: {
-  id: string;
-  label: string;
-  swatch: string;
-  text: CSSProperties;
-  logoFilter: string;
-}[] = [
-  {
-    id: "white",
-    label: "Putih",
-    swatch: "#f4f4f2",
-    text: { color: "#fafafa", textShadow: "0 1px 1px rgba(0,0,0,.6), 0 0 1px rgba(0,0,0,.5)" },
-    logoFilter: "brightness(0) invert(1) drop-shadow(0 1px 1px rgba(0,0,0,.6))",
-  },
-  {
-    id: "gold",
-    label: "Emas",
-    swatch: "linear-gradient(135deg,#fbe9a0,#c9973a 55%,#8a5d17)",
-    text: {
-      backgroundImage: "linear-gradient(180deg,#fff3b8 0%,#e4bb52 48%,#9a6a1c 100%)",
-      WebkitBackgroundClip: "text",
-      backgroundClip: "text",
-      color: "transparent",
-      filter: "drop-shadow(0 1px 1px rgba(0,0,0,.55))",
-    },
-    logoFilter:
-      "brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(-10deg) brightness(.95) drop-shadow(0 1px 1px rgba(0,0,0,.55))",
-  },
-  {
-    id: "black",
-    label: "Hitam",
-    swatch: "#141414",
-    text: { color: "#121212", textShadow: "0 1px 0 rgba(255,255,255,.35)" },
-    logoFilter: "brightness(0) drop-shadow(0 1px 0 rgba(255,255,255,.35))",
-  },
-];
+// Engraving etches the frame's surface away, so the mark shows the material's own base colour.
+// The preview approximates that with a pale, matte, slightly recessed tone; it cannot be chosen.
+const ETCHED_TEXT: CSSProperties = {
+  color: "rgba(238,226,208,.86)",
+  textShadow: "0 -1px 0 rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12)",
+};
+const ETCHED_LOGO_FILTER =
+  "brightness(0) invert(.9) sepia(.35) opacity(.86) drop-shadow(0 -1px 0 rgba(0,0,0,.45))";
 
 type Mode = "text" | "logo";
 
@@ -76,7 +48,6 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
   const [mode, setMode] = useState<Mode>("text");
   const [text, setText] = useState("");
   const [fontId, setFontId] = useState<(typeof FONTS)[number]["id"]>("bold");
-  const [finishId, setFinishId] = useState("white");
   const [logoUrl, setLogoUrl] = useState("");
   const [logoName, setLogoName] = useState("");
   const [demoIndex, setDemoIndex] = useState(0);
@@ -86,7 +57,6 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
   const stageRef = useRef<HTMLDivElement>(null);
 
   const font = FONTS.find((item) => item.id === fontId) ?? FONTS[0];
-  const finish = FINISHES.find((item) => item.id === finishId) ?? FINISHES[0];
   const userText = text.trim();
   const hasDesign = Boolean(userText || logoUrl);
   const showDemo = !hasDesign && !editing;
@@ -141,7 +111,6 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
     setLogoUrl("");
     setLogoName("");
     setFontId("bold");
-    setFinishId("white");
   };
 
   const handleLogo = (file: File | undefined) => {
@@ -163,7 +132,6 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
       text: userText,
       fileName: logoName,
       fontLabel: font.label,
-      finishLabel: finish.label,
     });
   };
 
@@ -213,14 +181,14 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                       src={logoUrl}
                       alt=""
                       className="h-[3.2cqw] w-auto max-w-[9cqw] object-contain"
-                      style={{ filter: finish.logoFilter }}
+                      style={{ filter: ETCHED_LOGO_FILTER }}
                     />
                   )}
                   {shownText && (
                     <span
                       className={font.className}
                       style={{
-                        ...finish.text,
+                        ...ETCHED_TEXT,
                         fontSize: fontSizeFor(shownText.length, Boolean(logoUrl) && !showDemo),
                       }}
                     >
@@ -254,7 +222,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
           </div>
         )}
         <span className="pointer-events-none absolute left-3 top-3 z-20 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-black/60">
-          {editing ? "Preview · area print gagang" : "SCOOT Custom Lab"}
+          {editing ? "Preview · area grafir gagang" : "SCOOT Custom Lab"}
         </span>
         {editing && (
           <span className="pointer-events-none absolute bottom-3 left-3 z-20 bg-white/85 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-black/70">
@@ -420,35 +388,19 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                     )}
                   </div>
                   <p className="mt-2 text-xs leading-relaxed text-[#666]">
-                    Logo dicetak satu warna. PNG transparan atau SVG memberi hasil paling tajam. Bisa
+                    Logo digrafir satu warna. PNG transparan atau SVG memberi hasil paling tajam. Bisa
                     digabung dengan tulisan.
                   </p>
                 </div>
               )}
 
-              <div>
+              <div className="border-l-2 border-[#c8102e] bg-white px-3 py-3" data-testid="temple-engrave-note">
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]">Warna grafir</p>
-                <div className="mt-2 flex gap-2">
-                  {FINISHES.map((item) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setFinishId(item.id)}
-                      aria-pressed={finishId === item.id}
-                      className={`flex items-center gap-2 border px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.1em] transition-colors ${finishId === item.id ? "border-black" : "border-black/20 hover:border-black/60"}`}
-                      data-testid={`temple-finish-${item.id}`}
-                    >
-                      <span
-                        className="h-4 w-4 rounded-full border border-black/20"
-                        style={{ background: item.swatch }}
-                      />
-                      {item.label}
-                      {item.id === "white" && (
-                        <span className="bg-black px-1 py-0.5 text-[8px] text-white">Utama</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
+                <p className="mt-1 text-xs leading-relaxed text-[#666]">
+                  Grafir dibuat dengan mengikis permukaan frame, jadi warna yang muncul adalah warna dasar
+                  material frame. Warnanya mengikuti model &amp; warna frame yang kamu pilih, tidak bisa dipilih
+                  terpisah.
+                </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 border-t border-black/15 pt-5">

@@ -35,9 +35,10 @@ PHOTO = {
 }
 TEMPLE = uri("marketing/instagram/assets/temple-brill.webp")
 MAROON = "#8e1b1f"
-# Opening promo (until Sun 29 Nov 2026): Rp100.000, regular Rp120.000 (Casama 110rb → 130rb).
+# Opening promo (until Sun 29 Nov 2026): Rp100.000 (Casama 110rb). Normal price differs per model:
+# 120rb Brill/Ocala/Duble/Fourty · 130rb Brazz/Kurera/Casama · 140rb Tropic/Satvale.
 OPENING_BADGE = "<span style='display:block'>Opening<br>100rb<span style='display:block;margin-top:6px;font-size:.48em;font-weight:600;letter-spacing:.02em'>s/d 29 Nov</span></span>"
-OPENING_LINE = "Harga opening Rp100.000 <s style='opacity:.55'>Rp120.000</s> · s/d 29 Nov"
+OPENING_LINE = "Harga opening mulai Rp100.000 · s/d 29 Nov"
 NOISE = (
     "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>"
     "<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/>"
@@ -108,6 +109,8 @@ def engraved_temple(text: str, size: float, finish: str, zoom: float, window_w: 
     style = {
         "gold": "background:linear-gradient(180deg,#fff3b8 0%,#e4bb52 48%,#9a6a1c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 1px rgba(0,0,0,.55));",
         "white": "color:#fafafa;text-shadow:0 1px 1px rgba(0,0,0,.6);",
+        # Laser engraving etches the surface: the mark shows the material's pale base tone, matte and recessed.
+        "etched": "color:rgba(238,226,208,.88);text-shadow:0 -2px 1px rgba(0,0,0,.42),0 1px 0 rgba(255,255,255,.14);",
     }[finish]
     return f"""
 <div style='position:relative;width:{window_w}px;height:{window_h}px;overflow:hidden;background:#fff'>
@@ -182,7 +185,7 @@ def launch_custom():
 <div class='abs center caps' style='left:0;right:0;top:120px'>SCOOT custom lab</div>
 <div class='abs center serif-up' style='left:0;right:0;top:180px;font-size:150px;color:#c0141f'>Make it <span class='serif' style='font-weight:700'>yours</span></div>
 <div class='abs copy center' style='left:120px;right:120px;top:360px;font-size:32px'>Grafir nama, inisial, atau logo kecil di gagang kacamatamu.</div>
-<div class='abs card' style='left:90px;top:490px;width:900px;height:560px'>{engraved_temple('RIDE YOUR OWN WAY', 1.75, 'white', 1.9, 900, 560)}</div>
+<div class='abs card' style='left:90px;top:490px;width:900px;height:560px'>{engraved_temple('RIDE YOUR OWN WAY', 1.75, 'etched', 1.9, 900, 560)}</div>
 {badge('+Rp<br>15rb', 830, 420, 180, 10, 40)}
 <div class='abs center' style='left:0;right:0;top:1100px'>
   <div class='small' style='font-size:24px;letter-spacing:.12em'>+Rp15.000/pcs · pouch hitam &amp; box cokelat</div>
@@ -228,7 +231,7 @@ def custom_steps():
     return page(f"""
 <div class='abs center caps' style='left:0;right:0;top:120px'>The custom lab</div>
 <div class='abs center serif-up' style='left:0;right:0;top:176px;font-size:128px;color:#c0141f;line-height:1'>4 langkah,<br><span class='serif' style='font-weight:700'>jadi milikmu</span></div>
-<div class='abs card' style='left:90px;top:480px;width:900px;height:500px'>{engraved_temple('R.F. · 2026', 2.3, 'white', 1.9, 900, 500)}</div>
+<div class='abs card' style='left:90px;top:480px;width:900px;height:500px'>{engraved_temple('R.F. · 2026', 2.3, 'etched', 1.9, 900, 500)}</div>
 <div class='abs' style='left:54px;right:54px;top:1020px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px'>{cards}</div>
 <div class='abs center copy' style='left:0;right:0;bottom:56px;font-size:26px'>+Rp15.000/pcs · termasuk pouch hitam &amp; box cokelat</div>""")
 
@@ -249,7 +252,7 @@ def shopee():
 
 
 def kurera_spec():
-    rows = [("Series", "Belisima"), ("Harga opening", f"100rb <s style='color:#999;font-size:22px'>120rb</s>"), ("Warna ready", "3 warna"), ("Custom", "+Rp15.000")]
+    rows = [("Series", "Belisima"), ("Harga opening", f"100rb <s style='color:#999;font-size:22px'>130rb</s>"), ("Warna ready", "3 warna"), ("Custom", "+Rp15.000")]
     table = "".join(f"<div><span class='k'>{k}</span><span class='v'>{v}</span></div>" for k, v in rows)
     return page(f"""
 <img class='logo' src='{LOGO}'>

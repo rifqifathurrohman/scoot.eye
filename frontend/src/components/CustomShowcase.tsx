@@ -8,7 +8,7 @@ const details = [
   { src: "/custom/logo-red-lens.webp", label: "Logo merah", frame: "Frame hitam · lensa merah" },
 ];
 
-/** Real customer-style results: the full flat-lay plus four close-ups of the printed logo on the temple. */
+/** Real customer-style results: the full flat-lay plus four close-ups of the engraved logo on the temple. */
 export default function CustomShowcase({ className = "" }: { className?: string }) {
   return (
     <section className={`grid border-b border-black bg-[#f9f9f7] lg:grid-cols-[5fr_7fr] ${className}`} data-testid="custom-showcase">
@@ -31,7 +31,7 @@ export default function CustomShowcase({ className = "" }: { className?: string 
             Logo kamu,<br />di gagang.
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-[#666]">
-            Contoh custom print logo kecil di bagian luar gagang. Kirim logo komunitas, brand, atau simbol pribadimu, kami cetak rapi dan tajam.
+            Contoh grafir logo kecil di bagian luar gagang. Grafir mengikis permukaan frame, jadi warna yang muncul adalah warna dasar materialnya. Kirim logo komunitas, brand, atau simbol pribadimu.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" data-testid="custom-showcase-details">

@@ -93,9 +93,9 @@ def this_or_that():
 # ---------------- Price card ----------------
 def price_card():
     rows = [
-        ("Semua frame", "Belisima Series", f"100K", strike("120K")),
+        ("Semua frame", "Normal 120–140K", f"100K", ""),
         ("Casama", "Kaca kuning & leopard", "110K", strike("130K")),
-        ("Custom grafir", "Putih · nama / logo kecil", "+15K", ""),
+        ("Custom grafir", "Nama / logo kecil", "+15K", ""),
         ("Grosir 100+ pcs", "Komunitas & event", "Harga<br>khusus", ""),
     ]
     cards = "".join(f"""
@@ -153,7 +153,7 @@ def duble_stack():
 # ---------------- Macro detail ----------------
 def details_matter():
     return page(f"""
-<div class='abs' style='left:0;top:58px'>{engraved_temple('RIDE YOUR OWN STYLE', 1.75, 'white', 2.7, 1080, 820)}</div>
+<div class='abs' style='left:0;top:58px'>{engraved_temple('RIDE YOUR OWN STYLE', 1.75, 'etched', 2.7, 1080, 820)}</div>
 <div class='abs' style='left:54px;right:54px;top:940px;display:flex;align-items:baseline;gap:26px;white-space:nowrap'>
   <span class='sans' style='font-size:136px'>Details</span><span class='serif' style='font-size:124px'>matter.</span>
 </div>
@@ -192,7 +192,7 @@ def countdown():
 {img('f-kurera/kukera-br', 770, 300, 400, -14, 15)}
 <div class='abs' style='left:90px;right:90px;top:960px;display:grid;grid-template-columns:1fr 1fr;border:2px solid #222'>
   <div style='padding:26px 30px;border-right:2px solid #222'><div class='small' style='font-size:19px;letter-spacing:.14em'>s/d Min 29 Nov</div><div class='sans' style='font-size:70px;margin-top:10px;color:{MAROON}'>100rb</div></div>
-  <div style='padding:26px 30px'><div class='small' style='font-size:19px;letter-spacing:.14em'>Mulai Sen 30 Nov</div><div class='sans' style='font-size:70px;margin-top:10px;opacity:.45'>120rb</div></div>
+  <div style='padding:26px 30px'><div class='small' style='font-size:19px;letter-spacing:.14em'>Mulai Sen 30 Nov</div><div class='sans' style='font-size:70px;margin-top:10px;opacity:.45'>120–140rb</div></div>
 </div>
 <div class='abs center' style='left:0;right:0;bottom:60px'><div class='pill'>Checkout sekarang · link di bio</div></div>""")
 
@@ -219,7 +219,7 @@ def gift_idea():
 <div class='abs center caps' style='left:0;right:0;top:118px'>Gift idea · akhir tahun</div>
 <div class='abs center serif-up' style='left:0;right:0;top:172px;font-size:128px;color:{RED};line-height:1'>Kado yang<br><span class='serif' style='font-weight:700'>personal</span></div>
 <div class='abs copy center' style='left:120px;right:120px;top:440px;font-size:30px'>Grafir namanya, inisialnya, atau tanggal spesial kalian di gagang kacamata.</div>
-<div class='abs card' style='left:90px;top:560px;width:900px;height:480px'>{engraved_temple('FOR YOU · 2026', 2.1, 'white', 1.9, 900, 480)}</div>
+<div class='abs card' style='left:90px;top:560px;width:900px;height:480px'>{engraved_temple('FOR YOU · 2026', 2.1, 'etched', 1.9, 900, 480)}</div>
 {badge('+Rp<br>15rb', 850, 500, 170, 10, 38)}
 <div class='abs center' style='left:0;right:0;top:1080px'>
   <div class='small' style='font-size:23px;letter-spacing:.12em'>Pouch hitam &amp; box cokelat · siap dikado</div>
@@ -238,7 +238,7 @@ def last_day():
 {img('c-casama/casama-lg', 520, 700, 600, -10, 13)}
 <div class='abs' style='left:90px;right:90px;top:990px;display:grid;grid-template-columns:1fr 1fr;border:2px solid #222'>
   <div style='padding:26px 30px;border-right:2px solid #222'><div class='small' style='font-size:19px;letter-spacing:.14em'>Hari ini saja</div><div class='sans' style='font-size:70px;margin-top:10px;color:{MAROON}'>100rb</div></div>
-  <div style='padding:26px 30px'><div class='small' style='font-size:19px;letter-spacing:.14em'>Mulai besok</div><div class='sans' style='font-size:70px;margin-top:10px;opacity:.45'>120rb</div></div>
+  <div style='padding:26px 30px'><div class='small' style='font-size:19px;letter-spacing:.14em'>Mulai besok</div><div class='sans' style='font-size:70px;margin-top:10px;opacity:.45'>120–140rb</div></div>
 </div>
 <div class='abs center' style='left:0;right:0;bottom:60px'><div class='pill'>Checkout sebelum 23.59</div></div>""")
 
@@ -278,7 +278,7 @@ def custom_results():
   <div class='serif' style='font-size:96px;margin-top:4px'>di gagang.</div>
 </div>
 <div class='abs' style='left:574px;right:50px;top:640px;display:grid;grid-template-columns:1fr 1fr;gap:16px'>{crops}</div>
-<div class='abs copy' style='left:574px;right:50px;top:1110px;font-size:25px'>Logo komunitas, brand, atau simbol pribadimu, dicetak rapi di gagang.</div>
+<div class='abs copy' style='left:574px;right:50px;top:1110px;font-size:25px'>Logo komunitas, brand, atau simbol pribadimu, digrafir rapi di gagang.</div>
 <div class='abs' style='left:574px;bottom:54px'><div class='pill' style='padding:18px 34px;font-size:22px'>+Rp15.000/pcs</div></div>""")
 
 

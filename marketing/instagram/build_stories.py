@@ -76,7 +76,7 @@ def s3_promo():
 <div class='abs center' style='left:0;right:0;top:400px'>
   <div class='serif' style='font-size:120px'>Harga opening</div>
   <div class='sans' style='font-size:420px;line-height:.8;color:{bp.MAROON};margin-top:30px;letter-spacing:-0.06em'>100<span style='font-size:.42em;letter-spacing:-0.03em'>rb</span></div>
-  <div style='font-family:Inter;font-weight:600;font-size:56px;margin-top:26px'><s style='color:#888;text-decoration-color:{bp.MAROON};text-decoration-thickness:5px'>Rp120.000</s> &nbsp;→&nbsp; Rp100.000</div>
+  <div style='font-family:Inter;font-weight:600;font-size:56px;margin-top:26px'><s style='color:#888;text-decoration-color:{bp.MAROON};text-decoration-thickness:5px'>Rp120–140rb</s> &nbsp;→&nbsp; Rp100.000</div>
   <div class='small' style='margin-top:20px;font-size:26px;letter-spacing:.12em'>Casama Rp110.000 (normal Rp130.000)</div>
 </div>
 {bp.img('b-ocala/ocala-ld', -40, 1090, 620, 12, 12)}
@@ -90,10 +90,10 @@ def s4_custom():
     return story(f"""
 <div class='abs center caps' style='left:0;right:0;top:290px'>SCOOT custom lab</div>
 <div class='abs center serif-up' style='left:0;right:0;top:350px;font-size:150px;color:#c0141f;line-height:1'>Make it<br><span class='serif' style='font-weight:700'>yours</span></div>
-<div class='abs card' style='left:70px;top:720px;width:940px;height:620px'>{bp.engraved_temple('NAMAMU DI SINI', 1.6, 'white', 1.95, 940, 620)}</div>
+<div class='abs card' style='left:70px;top:720px;width:940px;height:620px'>{bp.engraved_temple('NAMAMU DI SINI', 1.6, 'etched', 1.95, 940, 620)}</div>
 {bp.badge('+Rp<br>15rb', 820, 640, 200, 10, 44)}
 <div class='abs center' style='left:80px;right:80px;top:1390px'>
-  <div class='copy' style='font-size:38px'>Grafir <b>putih</b> nama, inisial, atau logo kecil di gagang kacamatamu.</div>
+  <div class='copy' style='font-size:38px'>Grafir nama, inisial, atau logo kecil di gagang kacamatamu.</div>
   <div class='small' style='margin-top:26px;font-size:24px;letter-spacing:.12em'>Coba preview langsung di {URL}</div>
 </div>""")
 
