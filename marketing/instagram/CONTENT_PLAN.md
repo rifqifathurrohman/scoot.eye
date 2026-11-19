@@ -1,7 +1,11 @@
 # SCOOT Eyewear — Instagram launch week (@scoot.eyewear)
 
-**Harga opening:** Rp100.000 (Casama Rp110.000) sampai Minggu 29 Nov 2026; mulai Senin 30 Nov harga normal
-Rp120.000 (Casama Rp130.000). Website berganti otomatis. **Warna grafir utama: putih.**
+**Harga opening:** Rp100.000 (Casama Rp110.000) sampai Minggu 29 Nov 2026. Mulai Senin 30 Nov harga normal
+berbeda per model: **Rp120.000** Brill · Ocala · Duble · Fourty — **Rp130.000** Brazz · Kurera · Casama —
+**Rp140.000** Tropic · Satvale. Website berganti otomatis.
+
+**Grafir:** grafir mengikis permukaan frame, jadi warna yang muncul adalah **warna dasar material frame**
+(tidak bisa dipilih). Jangan menulis "grafir putih/emas" di caption; tulis "warna mengikuti warna dasar frame".
 
 Format semua post: feed 4:5 (1080×1350). Visual ada di `export/`, sumber desain di `build_posts.py`
 (gaya mengikuti konsep Canva "SCOOT Ig Post"). Jam dalam WIB (Asia/Jakarta).
