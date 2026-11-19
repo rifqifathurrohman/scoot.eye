@@ -16,6 +16,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { toast } from "sonner";
+import { SiShopee } from "@icons-pack/react-simple-icons";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import PriceTag from "@/components/PriceTag";
@@ -31,6 +32,7 @@ import {
   priceOf,
   productById,
   whatsappUrl,
+  shopeeUrl,
 } from "@/lib/catalog";
 
 export default function ProductDetail() {
@@ -541,6 +543,15 @@ export default function ProductDetail() {
               data-testid="product-whatsapp-button"
             >
               Tanya via WhatsApp ↗
+            </a>
+            <a
+              href={shopeeUrl(product)}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex w-full items-center justify-center gap-3 border border-[#ee4d2d] px-5 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#ee4d2d] transition-colors hover:bg-[#ee4d2d] hover:text-white"
+              data-testid="product-shopee-button"
+            >
+              <SiShopee size={14} /> {product.shopeeItemId ? "Beli di Shopee ↗" : "Lihat toko Shopee ↗"}
             </a>
             <div
               className="mt-10 divide-y divide-black/15 border-y border-black/15"

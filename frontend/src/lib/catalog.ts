@@ -18,6 +18,8 @@ export interface Product {
   images: string[];
   collection: string;
   index: string;
+  /** Item id of this model's Shopee listing, once it is live there. */
+  shopeeItemId?: string;
 }
 
 export interface CartItem {
@@ -48,6 +50,11 @@ export const priceOf = (product: Pick<Product, "price" | "openingPrice">, at: Da
 export const isDiscounted = (product: Pick<Product, "price" | "openingPrice">, at: Date = new Date()) =>
   priceOf(product, at) < product.price;
 export const WHATSAPP_NUMBER = "6285156581959";
+export const SHOPEE_SHOP_ID = "71768025";
+export const SHOPEE_STORE_URL = `https://shopee.co.id/shop/${SHOPEE_SHOP_ID}`;
+/** Link to the model's Shopee listing, or to the whole store while it is not listed yet. */
+export const shopeeUrl = (product?: Pick<Product, "shopeeItemId">) =>
+  product?.shopeeItemId ? `https://shopee.co.id/product/${SHOPEE_SHOP_ID}/${product.shopeeItemId}` : SHOPEE_STORE_URL;
 
 // Originals live in public/Belisima series; scripts/normalize_products.py writes trimmed,
 // centred 1000×1000 copies to public/catalog so every frame shows at the same scale.
@@ -106,7 +113,7 @@ export const products: Product[] = [
       variant("TP", 7, "A _ Brill", "BRILL TP.JPG", "Putih"),
     ],
     description: "Model Brill dari Belisima Series.",
-    images: [image("A _ Brill", "BRILL BL.JPG")], collection: "BELISIMA SERIES", index: "01",
+    images: [image("A _ Brill", "BRILL BL.JPG")], collection: "BELISIMA SERIES", index: "01", shopeeItemId: "49371928958",
   },
   {
     id: "ocala", name: "Ocala", price: 120000, openingPrice: 100000,
@@ -119,7 +126,7 @@ export const products: Product[] = [
       variant("WD", 22, "B _ Ocala", "OCALA WD.JPG"),
     ],
     description: "Model Ocala dari Belisima Series.",
-    images: [image("B _ Ocala", "OCALA BB.JPG")], collection: "BELISIMA SERIES", index: "02",
+    images: [image("B _ Ocala", "OCALA BB.JPG")], collection: "BELISIMA SERIES", index: "02", shopeeItemId: "54621826127",
   },
   {
     id: "casama", name: "Casama", price: 130000, openingPrice: 110000,
@@ -134,7 +141,7 @@ export const products: Product[] = [
       variant("TI", 20, "C _ casama", "CASAMA TI.JPG"),
     ],
     description: "Model Casama dari Belisima Series.",
-    images: [image("C _ casama", "CASAMA BL .JPG")], collection: "BELISIMA SERIES", index: "03",
+    images: [image("C _ casama", "CASAMA BL .JPG")], collection: "BELISIMA SERIES", index: "03", shopeeItemId: "50471893262",
   },
   {
     id: "brazz", name: "Brazz", price: 130000, openingPrice: 100000,
@@ -147,7 +154,7 @@ export const products: Product[] = [
       variant("TP", 0, "D _ Brazz", "Brazz TP.JPG"),
     ],
     description: "Model Brazz dari Belisima Series.",
-    images: [image("D _ Brazz", "Brazz BB.JPG")], collection: "BELISIMA SERIES", index: "04",
+    images: [image("D _ Brazz", "Brazz BB.JPG")], collection: "BELISIMA SERIES", index: "04", shopeeItemId: "40186896908",
   },
   {
     id: "duble", name: "Duble", price: 120000, openingPrice: 100000,
@@ -161,7 +168,7 @@ export const products: Product[] = [
       variant("TC", 23, "E _ duble", "DUBLE TC.JPG"), variant("TI", 0, "E _ duble", "DUBLE TI.JPG"),
     ],
     description: "Model Duble dari Belisima Series.",
-    images: [image("E _ duble", "DUBLE BL.JPG")], collection: "BELISIMA SERIES", index: "05",
+    images: [image("E _ duble", "DUBLE BL.JPG")], collection: "BELISIMA SERIES", index: "05", shopeeItemId: "50221861741",
   },
   {
     id: "kurera", name: "Kurera", price: 130000, openingPrice: 100000,
@@ -175,7 +182,7 @@ export const products: Product[] = [
       variant("WH", 0, "F _ kurera", "KUKERA WH.JPG"),
     ],
     description: "Model Kurera dari Belisima Series.",
-    images: [image("F _ kurera", "KUKERA BL.JPG")], collection: "BELISIMA SERIES", index: "06",
+    images: [image("F _ kurera", "KUKERA BL.JPG")], collection: "BELISIMA SERIES", index: "06", shopeeItemId: "55071876623",
   },
   {
     id: "tropic", name: "Tropic", price: 140000, openingPrice: 100000,

@@ -194,7 +194,7 @@ def launch_custom():
 
 
 def launch_order():
-    rows = [("Website", "Link di bio"), ("WhatsApp", "0851 5658 1959"), ("Shopee", "Segera hadir"), ("Custom", "+Rp15.000/pcs")]
+    rows = [("Website", "Link di bio"), ("WhatsApp", "0851 5658 1959"), ("Shopee", "Sudah buka"), ("Custom", "+Rp15.000/pcs")]
     table = "".join(f"<div><span class='k'>{k}</span><span class='v'>{v}</span></div>" for k, v in rows)
     return page(f"""
 <img class='logo' src='{LOGO}'>
@@ -239,11 +239,11 @@ def custom_steps():
 def shopee():
     return page(f"""
 <img class='logo' src='{LOGO}'>
-<div class='abs small' style='right:54px;top:112px'>Official store</div>
+<div class='abs small' style='right:54px;top:112px'>Now open</div>
 {img('b-ocala/ocala-ld', 400, 200, 700, -8, 12)}
 {img('d-brazz/brazz-bl', -30, 450, 680, 8, 14)}
-{img('h-satvale/satvale-wh', 560, 620, 560, -12, 13)}
-{badge('Official<br>store', 70, 250, 210, -14, 38)}
+{img('f-kurera/kukera-br', 520, 640, 600, -10, 13)}
+{badge('Now<br>open', 70, 250, 210, -14, 44)}
 <div class='abs center' style='left:0;right:0;top:960px'>
   <div style='font-family:Inter;font-weight:500;font-size:62px;letter-spacing:-0.035em'>sekarang hadir di</div>
   <div class='serif' style='font-size:140px;margin-top:4px'>Shopee Store</div>
