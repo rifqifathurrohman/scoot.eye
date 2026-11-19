@@ -24,7 +24,7 @@ post tunggal = lebih banyak kesempatan masuk feed & Explore. Semua sudah terjadw
 | | 16.30 | Cerita brand "Not just another pair" | `01-launch-2-story` |
 | | 20.00 | Lineup 9 model Belisima | `01-launch-3-lineup` |
 | Jum, 20 Nov | 11.00 | Ocala · 5 warna | `02-ocala-collection` |
-| | 19.30 | Make it yours (grafir putih) | `01-launch-4-custom` |
+| | 19.30 | Make it yours (grafir) | `01-launch-4-custom` |
 | Sab, 21 Nov | 10.30 | Where to shop | `01-launch-5-order` |
 | | 19.30 | Custom print · 4 langkah | `03-custom-steps` |
 | Min, 22 Nov* | — | Shopee store sudah buka (belum dijadwalkan) | `04-shopee` |
@@ -86,7 +86,7 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 > Make it yours. ✍️
 >
-> Grafir nama, inisial, atau logo kecil di gagang kacamatamu, dengan warna putih yang bersih dan kontras.
+> Grafir nama, inisial, atau logo kecil di gagang kacamatamu. Grafir mengikis permukaan frame, jadi warna yang muncul adalah warna dasar materialnya.
 >
 > +Rp15.000/pcs, sudah termasuk pouch hitam & box cokelat.
 >
@@ -134,7 +134,7 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 > Kacamatamu, tanda tanganmu. ✍️
 >
-> Di SCOOT Custom Lab, kamu bisa grafir nama, inisial, tanggal spesial, atau logo kecil di gagang kacamata, dengan warna grafir putih yang bersih dan kontras.
+> Di SCOOT Custom Lab, kamu bisa grafir nama, inisial, tanggal spesial, atau logo kecil di gagang kacamata. Grafir mengikis permukaan frame, jadi warna yang muncul adalah warna dasar materialnya.
 >
 > 01 Pilih model
 > 02 Tulis cirimu
@@ -229,7 +229,7 @@ Instagram bila story diposting manual.
 | 11.45 | `s1-officially-live` | "SCOOT Eyewear is officially live" | Mention post feed cover | OPENING |
 | 12.30 | `s2-website-live` | Website is now live + mockup HP | **Link** → https://scooteyewear.my.id | WEBSITE |
 | 16.45 | `s3-opening-price` | Harga opening 100rb (normal 120rb) s/d 29 Nov | **Countdown** "Promo opening berakhir" → 29 Nov 23.59 | OPENING |
-| 18.30 | `s4-custom-grafir` | Make it yours · grafir putih "NAMAMU DI SINI" | **Question** "Mau grafir tulisan apa?" | CUSTOM |
+| 18.30 | `s4-custom-grafir` | Make it yours · grafir "NAMAMU DI SINI" | **Question** "Mau grafir tulisan apa?" | CUSTOM |
 | 20.15 | `s5-pick-your-style` | Pick your style: A Brill · B Ocala · C Kurera · D Satvale | **Quiz/Poll** A–D | KATALOG |
 | 21.00 | `s6-how-to-order` | How to order (4 langkah) + mockup halaman produk | **Link** → https://scooteyewear.my.id/katalog/ | ORDER |
 
