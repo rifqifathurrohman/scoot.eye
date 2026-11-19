@@ -100,7 +100,7 @@ export const products: Product[] = [
     colors: ["BL", "LD", "PK", "TI", "TP"],
     variants: [
       variant("BL", 34, "A _ Brill", "BRILL BL.JPG", "Hitam"),
-      variant("LD", 26, "A _ Brill", "BRILL LD.JPG", "Leopard"),
+      variant("LD", 16, "A _ Brill", "BRILL LD.JPG", "Leopard"),
       variant("PK", 20, "A _ Brill", "BRILL PK.JPG", "Pink"),
       variant("TI", 25, "A _ Brill", "BRILL TI.JPG", "Cokelat"),
       variant("TP", 7, "A _ Brill", "BRILL TP.JPG", "Putih"),
@@ -155,7 +155,7 @@ export const products: Product[] = [
     variants: [
       variant("BC", 0, "E _ duble", "DUBLE BC.JPG"), variant("BL", 79, "E _ duble", "DUBLE BL.JPG", "Hitam"),
       variant("BP", 23, "E _ duble", "DUBLE BP.JPG", "Hitam — Kaca Jernih"), variant("BR", 39, "E _ duble", "DUBLE BR.JPG"),
-      variant("LB", 16, "E _ duble", "DUBLE LB.JPG", "Leopard"), variant("LC", 0, "E _ duble", "DUBLE LC.JPG"),
+      variant("LB", 26, "E _ duble", "DUBLE LB.JPG", "Leopard"), variant("LC", 0, "E _ duble", "DUBLE LC.JPG"),
       variant("PC", 0, "E _ duble", "DUBLE PC.JPG"), variant("PP", 30, "E _ duble", "DUBLE PP.JPG"),
       variant("RB", 0, "E _ duble", "DUBLE RB.JPG"), variant("RC", 0, "E _ duble", "DUBLE RC.JPG"),
       variant("TC", 23, "E _ duble", "DUBLE TC.JPG"), variant("TI", 0, "E _ duble", "DUBLE TI.JPG"),
