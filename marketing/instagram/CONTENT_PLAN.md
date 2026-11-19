@@ -20,9 +20,9 @@ post tunggal = lebih banyak kesempatan masuk feed & Explore. Semua sudah terjadw
 
 | Hari | Jam | Post | File |
 |------|-----|------|------|
-| **Kam, 19 Nov (launch)** | 11.30 | Cover "officially launching" | `01-launch-1-cover` |
-| | 16.30 | Cerita brand "Not just another pair" | `01-launch-2-story` |
-| | 20.00 | Lineup 9 model Belisima | `01-launch-3-lineup` |
+| **Kam, 19 Nov (launch)** | 09.00 | Cover "officially launching" | `01-launch-1-cover` |
+| | 15.00 | Cerita brand "Not just another pair" | `01-launch-2-story` |
+| | 19.30 | Lineup 9 model Belisima | `01-launch-3-lineup` |
 | Jum, 20 Nov | 11.00 | Ocala · 5 warna | `02-ocala-collection` |
 | | 19.30 | Make it yours (grafir) | `01-launch-4-custom` |
 | Sab, 21 Nov | 10.30 | Where to shop | `01-launch-5-order` |
@@ -39,7 +39,7 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 ---
 
-## 1a · Cover — Kam 19 Nov, 11.30
+## 1a · Cover — Kam 19 Nov, 09.00
 
 > Officially launching: SCOOT Eyewear. 🏁
 >
@@ -54,7 +54,7 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 **Hashtag:** `#scooteyewear #rideyourownstyle #kacamata #kacamatafashion #sunglasses #sunglassesindonesia #eyewearindonesia #localbrandindonesia #kacamatacustom #scooterculture`
 
-## 1b · Cerita brand — Kam 19 Nov, 16.30 (label AI aktif)
+## 1b · Cerita brand — Kam 19 Nov, 15.00 (label AI aktif)
 
 > Not just another pair of sunglasses.
 >
@@ -68,7 +68,7 @@ Shopee). Setelah ketiga post launch tayang, sematkan (pin) cover, cerita, dan li
 
 **Hashtag:** `#scooteyewear #rideyourownstyle #localbrandindonesia #streetwearindonesia #scooterculture #vintagestyle #kacamatafashion`
 
-## 1c · Lineup — Kam 19 Nov, 20.00
+## 1c · Lineup — Kam 19 Nov, 19.30
 
 > 9 model. 1 series. 🕶️
 >
@@ -226,12 +226,12 @@ Instagram bila story diposting manual.
 
 | Jam | File | Isi | Sticker yang disarankan | Highlight |
 |-----|------|-----|-------------------------|-----------|
-| 11.45 | `s1-officially-live` | "SCOOT Eyewear is officially live" | Mention post feed cover | OPENING |
-| 12.30 | `s2-website-live` | Website is now live + mockup HP | **Link** → https://scooteyewear.my.id | WEBSITE |
+| 09.45 | `s1-officially-live` | "SCOOT Eyewear is officially live" | Mention post feed cover | OPENING |
+| 10.00 | `s2-website-live` | Website is now live + mockup HP | **Link** → https://scooteyewear.my.id | WEBSITE |
 | 16.45 | `s3-opening-price` | Harga opening 100rb (normal 120rb) s/d 29 Nov | **Countdown** "Promo opening berakhir" → 29 Nov 23.59 | OPENING |
 | 18.30 | `s4-custom-grafir` | Make it yours · grafir "NAMAMU DI SINI" | **Question** "Mau grafir tulisan apa?" | CUSTOM |
-| 20.15 | `s5-pick-your-style` | Pick your style: A Brill · B Ocala · C Kurera · D Satvale | **Quiz/Poll** A–D | KATALOG |
-| 21.00 | `s6-how-to-order` | How to order (4 langkah) + mockup halaman produk | **Link** → https://scooteyewear.my.id/katalog/ | ORDER |
+| 19.45 | `s5-pick-your-style` | Pick your style: A Brill · B Ocala · C Kurera · D Satvale | **Quiz/Poll** A–D | KATALOG |
+| 20.00 | `s6-how-to-order` | How to order (4 langkah) + mockup halaman produk | **Link** → https://scooteyewear.my.id/katalog/ | ORDER |
 
 Hari-hari berikutnya: repost setiap post feed ke story (tap ikon pesawat → "Tambahkan ke story"), lalu
 Jum 20 Nov ulang `s3-opening-price`, dan Sen 23 Nov ganti stiker link ke toko Shopee bila sudah aktif.
