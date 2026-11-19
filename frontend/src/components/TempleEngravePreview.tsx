@@ -35,7 +35,8 @@ const ETCHED_TEXT: CSSProperties = {
 const ETCHED_LOGO_FILTER = "drop-shadow(0 -1px 0 rgba(0,0,0,.45)) drop-shadow(0 1px 0 rgba(255,255,255,.1))";
 const ETCHED_RGB = [238, 226, 208] as const;
 // A logo alone sits near the hinge, like the real engraved samples; with text it shares the centre.
-const LOGO_ONLY_SHIFT = "-6cqw";
+// Offsets are along the temple (x, toward the hinge) and across it (y, down to its centre line).
+const LOGO_ONLY_SHIFT = { x: "-5.5cqw", y: "2.1cqw" };
 
 /**
  * Turn an uploaded logo into a one-colour etched mark: only the logo's shape is kept, its background
@@ -220,7 +221,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
               style={{
                 left: `${ANCHOR.x}%`,
                 top: `${ANCHOR.y}%`,
-                transform: `translate(-50%, -50%) rotate(${ANCHOR.angle}deg)${logoOnly ? ` translateX(${LOGO_ONLY_SHIFT})` : ""}`,
+                transform: `translate(-50%, -50%) rotate(${ANCHOR.angle}deg)${logoOnly ? ` translate(${LOGO_ONLY_SHIFT.x}, ${LOGO_ONLY_SHIFT.y})` : ""}`,
               }}
               aria-hidden="true"
             >
@@ -233,7 +234,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                     <img
                       src={logoUrl}
                       alt=""
-                      className={`w-auto object-contain ${logoOnly ? "h-[5.2cqw] max-w-[11cqw]" : "h-[4.2cqw] max-w-[7cqw]"}`}
+                      className={`w-auto object-contain ${logoOnly ? "h-[6.4cqw] max-w-[12cqw]" : "h-[4.2cqw] max-w-[7cqw]"}`}
                       style={{ filter: ETCHED_LOGO_FILTER }}
                     />
                   )}
