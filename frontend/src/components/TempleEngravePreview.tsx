@@ -32,8 +32,60 @@ const ETCHED_TEXT: CSSProperties = {
   color: "rgba(238,226,208,.86)",
   textShadow: "0 -1px 0 rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12)",
 };
-const ETCHED_LOGO_FILTER =
-  "brightness(0) invert(.9) sepia(.35) opacity(.86) drop-shadow(0 -1px 0 rgba(0,0,0,.45))";
+const ETCHED_LOGO_FILTER = "drop-shadow(0 -1px 0 rgba(0,0,0,.45)) drop-shadow(0 1px 0 rgba(255,255,255,.1))";
+const ETCHED_RGB = [238, 226, 208] as const;
+// A logo alone sits near the hinge, like the real engraved samples; with text it shares the centre.
+const LOGO_ONLY_SHIFT = "-6cqw";
+
+/**
+ * Turn an uploaded logo into a one-colour etched mark: only the logo's shape is kept, its background
+ * (transparent, or a flat light/dark colour in JPGs) is dropped, so it never engraves as a solid box.
+ */
+async function etchLogo(file: File): Promise<string> {
+  const source = URL.createObjectURL(file);
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new Image();
+      element.onload = () => resolve(element);
+      element.onerror = reject;
+      element.src = source;
+    });
+    const scale = Math.min(1, 512 / Math.max(image.naturalWidth || 512, image.naturalHeight || 512));
+    const width = Math.max(1, Math.round((image.naturalWidth || 512) * scale));
+    const height = Math.max(1, Math.round((image.naturalHeight || 512) * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) return source;
+    context.drawImage(image, 0, 0, width, height);
+    const pixels = context.getImageData(0, 0, width, height);
+    const data = pixels.data;
+    const luminance = (i: number) => 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+
+    let transparent = 0;
+    for (let i = 3; i < data.length; i += 4) if (data[i] < 200) transparent += 1;
+    const hasAlpha = transparent > (width * height) / 50;
+
+    // Background tone = average of the four corners; the logo is whatever differs from it.
+    const corners = [0, width - 1, (height - 1) * width, height * width - 1].map((index) => luminance(index * 4));
+    const background = corners.reduce((sum, value) => sum + value, 0) / corners.length;
+
+    for (let i = 0; i < data.length; i += 4) {
+      const strength = hasAlpha
+        ? data[i + 3] / 255
+        : Math.min(1, Math.max(0, (Math.abs(luminance(i) - background) - 28) / 70));
+      data[i] = ETCHED_RGB[0];
+      data[i + 1] = ETCHED_RGB[1];
+      data[i + 2] = ETCHED_RGB[2];
+      data[i + 3] = Math.round(strength * 0.88 * 255);
+    }
+    context.putImageData(pixels, 0, 0);
+    return canvas.toDataURL("image/png");
+  } finally {
+    URL.revokeObjectURL(source);
+  }
+}
 
 type Mode = "text" | "logo";
 
@@ -62,6 +114,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
   const showDemo = !hasDesign && !editing;
   const shownText = showDemo ? DEMO_TEXTS[demoIndex] : userText || (editing && !logoUrl ? "TULISANMU" : "");
   const isPlaceholder = editing && !hasDesign;
+  const logoOnly = Boolean(logoUrl) && !showDemo && !shownText;
   // The laser reveal plays for the demo loop and when a design is applied, never on each keystroke.
   const animateReveal = showDemo || (!editing && hasDesign);
 
@@ -81,10 +134,6 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
     // finishEditing only touches setters; re-binding on every render is unnecessary.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editing]);
-
-  useEffect(() => () => {
-    if (logoUrl) URL.revokeObjectURL(logoUrl);
-  }, [logoUrl]);
 
   const startEditing = (nextMode: Mode = mode) => {
     setMode(nextMode);
@@ -123,8 +172,12 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
       toast.error("File terlalu besar", { description: "Maksimal ukuran logo adalah 2 MB." });
       return;
     }
-    setLogoUrl(URL.createObjectURL(file));
-    setLogoName(file.name);
+    etchLogo(file)
+      .then((url) => {
+        setLogoUrl(url);
+        setLogoName(file.name);
+      })
+      .catch(() => toast.error("Logo tidak bisa dibaca", { description: "Coba file PNG atau JPG lain." }));
   };
 
   const orderDesign = () => {
@@ -167,7 +220,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
               style={{
                 left: `${ANCHOR.x}%`,
                 top: `${ANCHOR.y}%`,
-                transform: `translate(-50%, -50%) rotate(${ANCHOR.angle}deg)`,
+                transform: `translate(-50%, -50%) rotate(${ANCHOR.angle}deg)${logoOnly ? ` translateX(${LOGO_ONLY_SHIFT})` : ""}`,
               }}
               aria-hidden="true"
             >
@@ -180,7 +233,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                     <img
                       src={logoUrl}
                       alt=""
-                      className="h-[3.2cqw] w-auto max-w-[9cqw] object-contain"
+                      className={`w-auto object-contain ${logoOnly ? "h-[5.2cqw] max-w-[11cqw]" : "h-[4.2cqw] max-w-[7cqw]"}`}
                       style={{ filter: ETCHED_LOGO_FILTER }}
                     />
                   )}
