@@ -296,5 +296,15 @@ This-or-that tambahkan sticker **Poll A/B**, untuk persona tambahkan **Quiz** "K
 kartu harga & countdown tambahkan sticker **Countdown** ke 29 Nov 23.59. Masukkan ke highlight KATALOG /
 CUSTOM / OPENING sesuai isi.
 
-**Sabtu 28 & Minggu 29 Nov belum dijadwalkan.** Saran: Sab 19.30 "Last weekend", Min 12.00
-"Hari terakhir harga opening", Min 20.00 story "3 jam lagi". Mulai Sen 30 Nov semua post memakai harga normal.
+## Akhir promo — Sab 28 & Min 29 Nov (IG + FB, terjadwal)
+
+| Hari | Jam | Post | File |
+|------|-----|------|------|
+| Sab, 28 Nov | 10.30 | **This is the Last Weekend** | `week2/19-last-weekend` |
+| | 19.30 | **Kado yang personal** (grafir putih "FOR YOU · 2026", angle kado akhir tahun) | `week2/20-gift-idea` |
+| Min, 29 Nov | 12.00 | **Hari terakhir** · 100rb hari ini, 120rb mulai besok | `week2/21-last-day` |
+| | 20.00 | Story **"4 jam lagi"** (IG Story + FB Story) | `stories/s7-final-hours` |
+
+Saran manual Minggu malam: posting ulang story `s7` dengan sticker **Link** ke katalog dan sticker
+**Countdown** 23.59. Mulai Sen 30 Nov semua post memakai harga normal (Rp120.000 · Casama Rp130.000);
+website berganti otomatis.
