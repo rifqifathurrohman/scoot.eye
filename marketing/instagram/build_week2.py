@@ -197,6 +197,68 @@ def countdown():
 <div class='abs center' style='left:0;right:0;bottom:60px'><div class='pill'>Checkout sekarang · link di bio</div></div>""")
 
 
+# ---------------- Last weekend of the opening promo ----------------
+def last_weekend():
+    return page(f"""
+<img class='logo' src='{LOGO}'>
+<div class='abs small' style='right:54px;top:112px;letter-spacing:.12em'>Opening promo · Sab 28 Nov</div>
+{img('d-brazz/brazz-ld', 420, 170, 680, -9, 12)}
+{img('h-satvale/satvale-bb', -50, 420, 660, 8, 14)}
+{img('e-duble/duble-pp', 560, 600, 560, -12, 13)}
+{badge(OPENING_BADGE, 70, 210, 220, -14, 33)}
+<div class='abs center' style='left:0;right:0;top:930px'>
+  <div style='font-family:Inter;font-weight:500;font-size:60px;letter-spacing:-0.035em'>this is the</div>
+  <div class='serif' style='font-size:150px;margin-top:2px'>Last Weekend</div>
+  <div class='small' style='margin-top:24px;font-size:22px;letter-spacing:.12em'>{OPENING_LINE}</div>
+  <div class='pill' style='margin-top:30px'>Shop now · link di bio</div>
+</div>""")
+
+
+def gift_idea():
+    return page(f"""
+<div class='abs center caps' style='left:0;right:0;top:118px'>Gift idea · akhir tahun</div>
+<div class='abs center serif-up' style='left:0;right:0;top:172px;font-size:128px;color:{RED};line-height:1'>Kado yang<br><span class='serif' style='font-weight:700'>personal</span></div>
+<div class='abs copy center' style='left:120px;right:120px;top:440px;font-size:30px'>Grafir namanya, inisialnya, atau tanggal spesial kalian di gagang kacamata.</div>
+<div class='abs card' style='left:90px;top:560px;width:900px;height:480px'>{engraved_temple('FOR YOU · 2026', 2.1, 'white', 1.9, 900, 480)}</div>
+{badge('+Rp<br>15rb', 850, 500, 170, 10, 38)}
+<div class='abs center' style='left:0;right:0;top:1080px'>
+  <div class='small' style='font-size:23px;letter-spacing:.12em'>Pouch hitam &amp; box cokelat · siap dikado</div>
+  <div class='pill' style='margin-top:30px'>Harga opening berakhir besok</div>
+</div>
+<div class='abs serif center' style='left:0;right:0;bottom:46px;font-size:40px'>Make it yours.</div>""")
+
+
+def last_day():
+    return page(f"""
+<img class='logo' src='{LOGO}'>
+<div class='abs small' style='right:54px;top:112px;letter-spacing:.12em'>Min 29 Nov · berakhir 23.59</div>
+<div class='abs center caps' style='left:0;right:0;top:210px'>Opening promo</div>
+<div class='abs center sans' style='left:0;right:0;top:280px;font-size:200px;color:{MAROON}'>Hari<br>terakhir</div>
+{img('a-brill/brill-ld', -60, 720, 560, 10, 12)}
+{img('c-casama/casama-lg', 520, 700, 600, -10, 13)}
+<div class='abs' style='left:90px;right:90px;top:990px;display:grid;grid-template-columns:1fr 1fr;border:2px solid #222'>
+  <div style='padding:26px 30px;border-right:2px solid #222'><div class='small' style='font-size:19px;letter-spacing:.14em'>Hari ini saja</div><div class='sans' style='font-size:70px;margin-top:10px;color:{MAROON}'>100rb</div></div>
+  <div style='padding:26px 30px'><div class='small' style='font-size:19px;letter-spacing:.14em'>Mulai besok</div><div class='sans' style='font-size:70px;margin-top:10px;opacity:.45'>120rb</div></div>
+</div>
+<div class='abs center' style='left:0;right:0;bottom:60px'><div class='pill'>Checkout sebelum 23.59</div></div>""")
+
+
+def story_final_hours():
+    import build_stories as bs
+    return bs.story(f"""
+{bs.logo()}
+<div class='abs small' style='right:54px;top:280px'>Opening promo</div>
+<div class='abs center caps' style='left:0;right:0;top:470px'>Tinggal</div>
+<div class='abs center' style='left:0;right:0;top:440px;font-family:Inter;font-weight:900;font-size:700px;letter-spacing:-0.08em;line-height:1;color:{MAROON}'>4</div>
+<div class='abs center serif' style='left:0;right:0;top:1120px;font-size:150px'>jam lagi</div>
+{img('f-kurera/kukera-br', -90, 860, 470, 16, 15)}
+{img('b-ocala/ocala-ld', 720, 620, 460, -14, 15)}
+<div class='abs center' style='left:0;right:0;top:1330px'>
+  <div class='small' style='font-size:26px;letter-spacing:.12em'>Harga opening 100rb berakhir 23.59</div>
+  <div class='pill' style='margin-top:34px;font-size:30px'>scooteyewear.my.id</div>
+</div>""")
+
+
 POSTS = {
     "08-stop-playing-safe": stop_playing_safe,
     "09-this-or-that": this_or_that,
@@ -209,6 +271,9 @@ POSTS = {
     "16-persona-rider": persona_rider,
     "17-community-wall": community_wall,
     "18-countdown": countdown,
+    "19-last-weekend": last_weekend,
+    "20-gift-idea": gift_idea,
+    "21-last-day": last_day,
 }
 
 
@@ -225,6 +290,9 @@ def main():
             f"--screenshot={png}", html.as_uri(),
         ], check=True, capture_output=True, timeout=120)
         print("rendered", png.relative_to(bp.ROOT))
+    import build_stories as bs
+    bs.render(story_final_hours(), "s7-final-hours", bs.OUT_STORY)
+    print("rendered story s7-final-hours")
 
 
 if __name__ == "__main__":
