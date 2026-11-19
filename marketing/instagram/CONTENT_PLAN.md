@@ -270,6 +270,7 @@ dan cukup 3 hashtag di akhir teks; versi Instagram tetap "link di bio" + hashtag
 | Hari | Jam | Post | File | Baru? |
 |------|-----|------|------|-------|
 | Jum, 20 Nov | 11.00 | Ocala · 5 warna | `02-ocala-collection` | |
+| | 13.30 | **Logo kamu, di gagang** · hasil custom asli (foto logo bintang) + story 13.45 `stories/s8-custom-results` | `week2/22-custom-results` | ✔ |
 | | 16.00 | **Stop playing safe** (statement, label AI aktif di IG) | `week2/08-stop-playing-safe` | ✔ |
 | | 19.30 | Make it yours | `01-launch-4-custom` | |
 | Sab, 21 Nov | 10.30 | Where to shop | `01-launch-5-order` | |
