@@ -253,3 +253,48 @@ sudah tayang (atau dari Arsip Story), jadi buat setelah s1–s6 tayang malam ini
 1. **Label AI.** Post 1b (cerita brand) dan #5 (Kurera) memakai foto kampanye; label AI sudah aktif di Metricool. Kalau foto itu hasil AI, centang label "AI info" di Instagram (atau `isAiGenerated` di Metricool).
 2. **Data warna.** Jumlah warna ready mengikuti stok di website saat ini. Sesuaikan kalau stok berubah.
 3. **Promo opening.** Semua post 19–25 Nov memuat harga opening Rp100.000 (normal Rp120.000) s/d 29 Nov. Kalau ada post setelah 29 Nov, pakai harga normal.
+
+---
+
+# Minggu 2 — Jum 20 s/d Jum 27 Nov (Instagram + Facebook Page)
+
+Format baru diadaptasi dari referensi (@sepatucompass: hero produk, close-up detail, tumpukan produk,
+poster komunitas · @peep.eyewear: seri persona, kalimat statement besar, kartu harga, "new drop" gelap),
+tetapi digambar dengan gaya SCOOT dari plan awal (kertas abu, bar hitam, maroon, Inter + Playfair).
+Visual di `export/week2/`, sumber desain di `build_week2.py`.
+
+**Facebook Page:** setiap post feed (lama + baru) punya versi Facebook terpisah di jam yang sama.
+Bedanya, caption Facebook memakai **link langsung yang bisa diklik** (mis. `scooteyewear.my.id/produk/brill/`)
+dan cukup 3 hashtag di akhir teks; versi Instagram tetap "link di bio" + hashtag di komentar pertama.
+
+| Hari | Jam | Post | File | Baru? |
+|------|-----|------|------|-------|
+| Jum, 20 Nov | 11.00 | Ocala · 5 warna | `02-ocala-collection` | |
+| | 16.00 | **Stop playing safe** (statement, label AI aktif di IG) | `week2/08-stop-playing-safe` | ✔ |
+| | 19.30 | Make it yours | `01-launch-4-custom` | |
+| Sab, 21 Nov | 10.30 | Where to shop | `01-launch-5-order` | |
+| | 15.00 | **This or that?** Brazz vs Casama, komen A/B | `week2/09-this-or-that` | ✔ |
+| | 19.30 | Custom print · 4 langkah | `03-custom-steps` | |
+| Min, 22 Nov | 10.30 | **Which SCOOT are you? 01 · The Classic** (Brill) | `week2/10-persona-classic` | ✔ |
+| | 19.00 | **Stack your mood** · Duble 6 warna | `week2/11-duble-stack` | ✔ |
+| Sen, 23 Nov | 12.00 | **Harga spesial** (kartu harga opening) | `week2/12-price-card` | ✔ |
+| | 19.30 | Spotlight Kurera | `05-kurera-vintage-soul` | |
+| Sel, 24 Nov | 12.00 | Grosir 100+ pcs | `06-wholesale` | |
+| | 19.30 | **Just dropped · Fourty** (latar gelap) | `week2/13-fourty-drop` | ✔ |
+| Rab, 25 Nov | 12.00 | **Which SCOOT are you? 02 · The Main Character** (Casama kaca kuning) | `week2/14-persona-main-character` | ✔ |
+| | 19.30 | Spotlight Satvale | `07-satvale-colorful-culture` | |
+| Kam, 26 Nov | 12.00 | **Details matter** (close-up grafir putih) | `week2/15-details-matter` | ✔ |
+| | 19.30 | **Which SCOOT are you? 03 · The Rider** (Brazz) | `week2/16-persona-rider` | ✔ |
+| Jum, 27 Nov | 12.00 | **Community wall vol. 01** (ajakan tag & repost) | `week2/17-community-wall` | ✔ |
+| | 19.30 | **Tinggal 2 hari lagi** (countdown promo) | `week2/18-countdown` | ✔ |
+
+Caption lengkap tiap post (versi IG dan FB) tersimpan di Metricool → Planner. Pola caption sama seperti
+minggu 1: hook 1 baris + emoji, 1–2 kalimat isi, harga opening, ajakan komentar, lalu link.
+
+**Rutinitas story harian (manual, 2–3 story/hari):** repost setiap post feed baru ke story; untuk
+This-or-that tambahkan sticker **Poll A/B**, untuk persona tambahkan **Quiz** "Kamu yang mana?", untuk
+kartu harga & countdown tambahkan sticker **Countdown** ke 29 Nov 23.59. Masukkan ke highlight KATALOG /
+CUSTOM / OPENING sesuai isi.
+
+**Sabtu 28 & Minggu 29 Nov belum dijadwalkan.** Saran: Sab 19.30 "Last weekend", Min 12.00
+"Hari terakhir harga opening", Min 20.00 story "3 jam lagi". Mulai Sen 30 Nov semua post memakai harga normal.
