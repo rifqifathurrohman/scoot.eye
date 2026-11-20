@@ -124,7 +124,14 @@ function LoginForm() {
     setBusy(true);
     const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     setBusy(false);
-    if (error) toast.error("Gagal masuk", { description: "Email atau password salah." });
+    if (!error) return;
+    const reasons: Record<string, string> = {
+      invalid_credentials: "Email atau password salah.",
+      email_not_confirmed: "Email belum dikonfirmasi. Konfirmasi user di Supabase → Authentication → Users.",
+      email_provider_disabled: "Login email dimatikan di Supabase → Authentication → Sign In / Providers → Email.",
+      over_request_rate_limit: "Terlalu banyak percobaan. Tunggu beberapa menit lalu coba lagi.",
+    };
+    toast.error("Gagal masuk", { description: reasons[error.code ?? ""] ?? error.message });
   };
 
   return (
