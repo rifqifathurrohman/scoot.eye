@@ -1,4 +1,5 @@
 import { ArrowRight, Minus, Plus, Trash2 } from "lucide-react";
+import { track } from "@/lib/track";
 import { useEffect, useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
@@ -93,6 +94,7 @@ export default function Cart() {
       "",
       "Saya memahami ongkir dan pembayaran akan dikonfirmasi admin.",
     ].join("\n");
+    track("checkout");
     window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
   };
 

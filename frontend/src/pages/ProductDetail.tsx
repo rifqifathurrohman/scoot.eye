@@ -1,3 +1,4 @@
+import { track } from "@/lib/track";
 import {
   ArrowLeft,
   ArrowRight,
@@ -126,6 +127,7 @@ export default function ProductDetail() {
       fileName: customPrint ? fileName : "",
       note: customPrint ? note.trim() : "",
     });
+    if (added) track("add_to_cart", product.id);
     if (added)
       toast.success(`${product.name} masuk ke keranjang`, {
         description: `${colorName} · ${finalQuantity} pcs · ${formatPrice(unitPrice)} / pcs`,

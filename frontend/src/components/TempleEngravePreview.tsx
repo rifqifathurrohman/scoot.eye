@@ -1,4 +1,5 @@
 import { ArrowRight, ImagePlus, Pencil, RotateCcw, Type, X } from "lucide-react";
+import { track } from "@/lib/track";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
@@ -182,6 +183,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
   };
 
   const orderDesign = () => {
+    track("custom_design");
     saveCustomDraft({
       text: userText,
       fileName: logoName,

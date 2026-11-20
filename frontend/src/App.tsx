@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { track, trackOutboundClick } from "@/lib/track";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "@/pages/Home";
 import Catalog from "@/pages/Catalog";
@@ -21,6 +22,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    track("page_view");
   }, [pathname]);
   return null;
 }
@@ -31,6 +33,9 @@ export default function App() {
   useCatalogVersion();
   useEffect(() => {
     void loadRemoteCatalog();
+    // Shopee / WhatsApp / Instagram links anywhere on the site are counted from one listener.
+    document.addEventListener("click", trackOutboundClick, true);
+    return () => document.removeEventListener("click", trackOutboundClick, true);
   }, []);
   return (
     <>

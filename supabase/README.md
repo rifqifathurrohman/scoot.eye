@@ -22,6 +22,14 @@ listed in `public.admins` can change anything (Row Level Security).
 5. **Authentication → Sign In / Providers → Email**: turn **off** "Allow new users to sign up".
    (Even if left on, strangers could only read the catalog, but there is no reason to allow it.)
 
+## Analytics (phase 1b)
+
+Run `migrations/003_analytics.sql` once in the SQL Editor. The site then logs page views and clicks
+(Shopee, WhatsApp, Instagram, add to cart, WhatsApp checkout, custom-engraving designs) into
+`public.events`; the dashboard's **Analitik** tab reads them through `analytics_summary(days)`.
+No personal data is stored. Visits from localhost, /admin and automated browsers are not counted.
+Tip: link-in-bio URLs like `https://scooteyewear.my.id/?utm_source=instagram` show up as source "instagram".
+
 ## Rules
 
 - The publishable key in `frontend/src/lib/supabase.ts` is meant to be public.

@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { formatPrice } from "@/lib/catalog";
 import { builtInCatalog, loadRemoteCatalog } from "@/lib/catalogRemote";
 import { supabase } from "@/lib/supabase";
+import AnalyticsPanel from "@/components/admin/AnalyticsPanel";
 import type { ProductRow, PromoSetting, VariantRow } from "@/lib/supabase";
 
 const LOW_STOCK = 5;
@@ -107,9 +108,38 @@ export default function Admin() {
             </p>
           </div>
         ) : (
-          <Dashboard />
+          <AdminTabs />
         )}
       </main>
+    </div>
+  );
+}
+
+function AdminTabs() {
+  const [tab, setTab] = useState<"analytics" | "catalog">("analytics");
+  return (
+    <div className="space-y-8">
+      <div className="flex border-b border-black" role="tablist">
+        {(
+          [
+            ["analytics", "Analitik"],
+            ["catalog", "Produk & stok"],
+          ] as const
+        ).map(([id, name]) => (
+          <button
+            key={id}
+            type="button"
+            role="tab"
+            aria-selected={tab === id}
+            onClick={() => setTab(id)}
+            className={`-mb-px border border-b-0 px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.14em] ${tab === id ? "border-black bg-white" : "border-transparent text-black/55 hover:text-black"}`}
+            data-testid={`admin-tab-${id}`}
+          >
+            {name}
+          </button>
+        ))}
+      </div>
+      {tab === "analytics" ? <AnalyticsPanel /> : <Dashboard />}
     </div>
   );
 }
