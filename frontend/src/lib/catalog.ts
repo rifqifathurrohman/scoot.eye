@@ -40,8 +40,13 @@ export interface CartItem {
 
 export const CUSTOM_PRINT_PRICE = 15000;
 // Opening promo: openingPrice applies until the end of Sunday 29 Nov 2026 (WIB), then the regular price.
-export const OPENING_PROMO_END = new Date("2026-11-29T23:59:59+07:00");
-export const OPENING_PROMO_LABEL = "s/d 29 Nov";
+// Built-in defaults; the backoffice (Supabase settings.opening_promo) can override both at runtime.
+export let OPENING_PROMO_END = new Date("2026-11-29T23:59:59+07:00");
+export let OPENING_PROMO_LABEL = "s/d 29 Nov";
+export const setOpeningPromo = (end: Date, label: string) => {
+  if (!Number.isNaN(end.getTime())) OPENING_PROMO_END = end;
+  if (label.trim()) OPENING_PROMO_LABEL = label.trim();
+};
 export const isOpeningPromo = (at: Date = new Date()) => at.getTime() <= OPENING_PROMO_END.getTime();
 /** Price a customer pays right now (opening price while the promo runs). */
 export const priceOf = (product: Pick<Product, "price" | "openingPrice">, at: Date = new Date()) =>

@@ -1,4 +1,5 @@
 import { Search, SlidersHorizontal, X } from "lucide-react";
+import { useCatalogVersion } from "@/lib/catalogRemote";
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import ProductCard from "@/components/ProductCard";
@@ -66,6 +67,7 @@ export default function Catalog() {
     setPrice("all");
     setSort("newest");
   };
+  const catalogVersion = useCatalogVersion();
   const visibleProducts = useMemo(
     () =>
       products
@@ -90,7 +92,9 @@ export default function Catalog() {
               ? priceOf(b) - priceOf(a)
               : Number(b.index) - Number(a.index),
         ),
-    [color, models, price, search, sort],
+    // catalogVersion: recompute when live prices/stock arrive from the backoffice.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [color, models, price, search, sort, catalogVersion],
   );
 
   return (

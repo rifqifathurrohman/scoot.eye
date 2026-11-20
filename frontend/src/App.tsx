@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "@/pages/Home";
 import Catalog from "@/pages/Catalog";
@@ -11,6 +11,10 @@ import Contact from "@/pages/Contact";
 import Cart from "@/pages/Cart";
 import NotFound from "@/pages/NotFound";
 import { Toaster } from "@/components/ui/sonner";
+import { loadRemoteCatalog, useCatalogVersion } from "@/lib/catalogRemote";
+
+// The backoffice is loaded only when someone opens /admin, so shoppers never download it.
+const Admin = lazy(() => import("@/pages/Admin"));
 
 // SPA navigation keeps the previous scroll position by default; start each new page at the top.
 function ScrollToTop() {
@@ -23,6 +27,11 @@ function ScrollToTop() {
 
 // One <Route> per page in src/pages; BrowserRouter already wraps this in main.tsx.
 export default function App() {
+  // Re-render the whole tree once live prices/stock/promo are merged into the catalog.
+  useCatalogVersion();
+  useEffect(() => {
+    void loadRemoteCatalog();
+  }, []);
   return (
     <>
       <ScrollToTop />
@@ -36,6 +45,14 @@ export default function App() {
         <Route path="/grosir/*" element={<Wholesale />} />
         <Route path="/kontak/*" element={<Contact />} />
         <Route path="/keranjang/*" element={<Cart />} />
+        <Route
+          path="/admin/*"
+          element={
+            <Suspense fallback={<div className="p-10 font-mono text-xs">Memuat backoffice…</div>}>
+              <Admin />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster position="top-center" />
