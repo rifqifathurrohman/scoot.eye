@@ -525,7 +525,7 @@ export default function ProductDetail() {
               data-testid="product-order-note"
             >
               {selectedStock > 0
-                ? `Stok ${colorName}: ${selectedStock} pcs · Harga website berlaku sampai 100 pcs.`
+                ? `Stok ${colorName}: ${selectedStock} pcs · Harga website berlaku sampai 30 pcs.`
                 : "Varian ini sedang habis."}
             </p>
             <button
@@ -603,7 +603,7 @@ export default function ProductDetail() {
                   className="mt-4 text-sm leading-relaxed text-[#666]"
                   data-testid="order-information-content"
                 >
-                  Harga website berlaku hingga 100 pcs. Untuk lebih dari 100
+                  Harga website berlaku hingga 30 pcs. Untuk lebih dari 30
                   pcs, hubungi admin untuk penawaran khusus. Ongkir dan
                   pembayaran dikonfirmasi admin.
                 </p>
