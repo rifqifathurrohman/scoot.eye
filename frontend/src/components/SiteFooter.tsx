@@ -1,8 +1,8 @@
-import { ArrowUpRight, Instagram, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Instagram, MessageCircle, Store } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SiShopee } from "@icons-pack/react-simple-icons";
 import BrandMark from "@/components/BrandMark";
-import { SHOPEE_STORE_URL } from "@/lib/catalog";
+import { SHOPEE_STORE_URL, TOKOPEDIA_STORE_URL } from "@/lib/catalog";
 
 export default function SiteFooter() {
   return (
@@ -26,6 +26,7 @@ export default function SiteFooter() {
             <a className="mt-5 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href="https://wa.me/6285156581959" target="_blank" rel="noreferrer" data-testid="footer-whatsapp-link"><MessageCircle size={14} /> WhatsApp ↗</a>
             <a className="mt-3 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href="https://www.instagram.com/scoot.eyewear/" target="_blank" rel="noreferrer" aria-label="Instagram SCOOT Eyewear (@scoot.eyewear)" data-testid="footer-instagram-link"><Instagram size={14} /> @scoot.eyewear ↗</a>
             <a className="mt-3 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href={SHOPEE_STORE_URL} target="_blank" rel="noreferrer" aria-label="Toko Shopee SCOOT Eyewear" data-testid="footer-shopee-link"><SiShopee size={14} /> Shopee ↗</a>
+            <a className="mt-3 flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] hover:text-[#ff4b4b]" href={TOKOPEDIA_STORE_URL} target="_blank" rel="noreferrer" aria-label="Toko Tokopedia SCOOT Eyewear" data-testid="footer-tokopedia-link"><Store size={14} /> Tokopedia ↗</a>
             <div className="mt-8 inline-flex rounded-sm bg-white px-3 py-2" data-testid="footer-brand-mark">
               <BrandMark to="" compact />
             </div>

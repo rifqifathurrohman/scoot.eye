@@ -57,6 +57,7 @@ export const isDiscounted = (product: Pick<Product, "price" | "openingPrice">, a
 export const WHATSAPP_NUMBER = "6285156581959";
 export const SHOPEE_SHOP_ID = "71768025";
 export const SHOPEE_STORE_URL = `https://shopee.co.id/shop/${SHOPEE_SHOP_ID}`;
+export const TOKOPEDIA_STORE_URL = "https://www.tokopedia.com/scooteyewear";
 /** Link to the model's Shopee listing, or to the whole store while it is not listed yet. */
 export const shopeeUrl = (product?: Pick<Product, "shopeeItemId">) =>
   product?.shopeeItemId ? `https://shopee.co.id/product/${SHOPEE_SHOP_ID}/${product.shopeeItemId}` : SHOPEE_STORE_URL;

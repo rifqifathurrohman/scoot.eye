@@ -8,6 +8,7 @@ import {
   Plus,
   Upload,
   X,
+  Store,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
@@ -34,6 +35,7 @@ import {
   productById,
   whatsappUrl,
   shopeeUrl,
+  TOKOPEDIA_STORE_URL,
 } from "@/lib/catalog";
 
 export default function ProductDetail() {
@@ -554,6 +556,15 @@ export default function ProductDetail() {
               data-testid="product-shopee-button"
             >
               <SiShopee size={14} /> {product.shopeeItemId ? "Beli di Shopee ↗" : "Lihat toko Shopee ↗"}
+            </a>
+            <a
+              href={TOKOPEDIA_STORE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex w-full items-center justify-center gap-3 border border-[#03ac0e] px-5 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#02800a] transition-colors hover:bg-[#02800a] hover:text-white"
+              data-testid="product-tokopedia-button"
+            >
+              <Store size={14} /> Lihat toko Tokopedia ↗
             </a>
             <div
               className="mt-10 divide-y divide-black/15 border-y border-black/15"

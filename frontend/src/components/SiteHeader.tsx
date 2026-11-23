@@ -1,10 +1,10 @@
-import { Menu, MessageCircle, ShoppingBag, X } from "lucide-react";
+import { Menu, MessageCircle, ShoppingBag, Store, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useCartCount } from "@/lib/cart";
 import BrandMark from "@/components/BrandMark";
 import { SiShopee } from "@icons-pack/react-simple-icons";
-import { formatPrice, isOpeningPromo, OPENING_PROMO_LABEL, priceOf, products, SHOPEE_STORE_URL } from "@/lib/catalog";
+import { formatPrice, isOpeningPromo, OPENING_PROMO_LABEL, priceOf, products, SHOPEE_STORE_URL, TOKOPEDIA_STORE_URL } from "@/lib/catalog";
 
 const navItems = [
 	{ label: "Katalog", to: "/katalog/" },
@@ -55,6 +55,15 @@ export default function SiteHeader() {
 						data-testid="header-shopee-link"
 					>
 						<SiShopee size={12} /> Kini di Shopee ↗
+					</a>
+					<a
+						className="hidden items-center gap-1 underline underline-offset-4 lg:flex"
+						href={TOKOPEDIA_STORE_URL}
+						target="_blank"
+						rel="noreferrer"
+						data-testid="header-tokopedia-link"
+					>
+						<Store size={12} /> Tokopedia ↗
 					</a>
 				</div>
 			</div>
