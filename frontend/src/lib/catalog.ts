@@ -233,9 +233,9 @@ export const products: Product[] = [
 ];
 
 export const campaignImages = [
-  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-maroon_2b77d7cf.webp",
-  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-red-frame_ae537b5b.webp",
-  "https://ftreyewear-fas8dpd2.manus.space/manus-storage/campaign-neon_3b036a8c.webp",
+  "/images/campaign-maroon.webp",
+  "/images/campaign-red-frame.webp",
+  "/images/campaign-neon.webp",
 ];
 
 export const galleryImages = [

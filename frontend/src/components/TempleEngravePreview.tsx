@@ -8,7 +8,7 @@ import { CUSTOM_PRINT_PRICE, formatPrice } from "@/lib/catalog";
 import { saveCustomDraft } from "@/lib/customDraft";
 
 const TEMPLE_IMAGE =
-  "https://ftreyewear-fas8dpd2.manus.space/assets/products/brill/brill-02.webp";
+  "/images/temple-brill.webp";
 // Centre and angle of the right temple in the 800×800 source photo, in % of the frame.
 const ANCHOR = { x: 68.75, y: 50.5, angle: -15 };
 // Zooming around this point keeps the whole temple inside the frame at 2×.
