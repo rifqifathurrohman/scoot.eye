@@ -27,8 +27,8 @@ const FONTS = [
   { id: "mono", label: "Mono", className: "font-mono font-bold uppercase tracking-[0.16em]" },
 ] as const;
 
-// Engraving etches the frame's surface away, so the mark shows the material's own base colour.
-// The preview approximates that with a pale, matte, slightly recessed tone; it cannot be chosen.
+// The design is UV-printed onto the temple. The preview shows it as a single pale, matte tone;
+// the real print colour is confirmed by the admin.
 const ETCHED_TEXT: CSSProperties = {
   color: "rgba(238,226,208,.86)",
   textShadow: "0 -1px 0 rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.12)",
@@ -278,7 +278,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
           </div>
         )}
         <span className="pointer-events-none absolute left-3 top-3 z-20 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-black/60">
-          {editing ? "Preview · area grafir gagang" : "SCOOT Custom Lab"}
+          {editing ? "Preview · area print gagang" : "SCOOT Custom Lab"}
         </span>
         {editing && (
           <span className="pointer-events-none absolute bottom-3 left-3 z-20 bg-white/85 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-black/70">
@@ -296,7 +296,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                   Desainmu: <span className="text-[#c8102e]">{userText || logoName}</span>
                 </>
               ) : (
-                <>Grafir nama, inisial, atau logo kecil di gagang</>
+                <>Print UV nama, inisial, atau logo kecil di gagang</>
               )}
             </p>
             <div className="flex gap-2">
@@ -444,18 +444,17 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
                     )}
                   </div>
                   <p className="mt-2 text-xs leading-relaxed text-[#666]">
-                    Logo digrafir satu warna. PNG transparan atau SVG memberi hasil paling tajam. Bisa
+                    Logo dicetak dengan print UV. PNG transparan atau SVG memberi hasil paling tajam. Bisa
                     digabung dengan tulisan.
                   </p>
                 </div>
               )}
 
               <div className="border-l-2 border-[#c8102e] bg-white px-3 py-3" data-testid="temple-engrave-note">
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]">Warna grafir</p>
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]">Print UV</p>
                 <p className="mt-1 text-xs leading-relaxed text-[#666]">
-                  Grafir dibuat dengan mengikis permukaan frame, jadi warna yang muncul adalah warna dasar
-                  material frame. Warnanya mengikuti model &amp; warna frame yang kamu pilih, tidak bisa dipilih
-                  terpisah.
+                  Desain dicetak langsung di permukaan gagang dengan tinta UV, hasilnya tajam dan tahan lama.
+                  Preview ini hanya ilustrasi; warna dan hasil akhir dikonfirmasi admin sebelum produksi.
                 </p>
               </div>
 

@@ -94,7 +94,7 @@ export default function AnalyticsPanel() {
               ["Klik ke Shopee", fmt(t.shopee_click), ""],
               ["Klik WhatsApp", fmt(t.whatsapp_click), `+ ${fmt(t.checkout)} checkout keranjang`],
               ["Tambah ke keranjang", fmt(t.add_to_cart), ""],
-              ["Pakai desain custom", fmt(t.custom_design), "dari editor grafir"],
+              ["Pakai desain custom", fmt(t.custom_design), "dari editor custom print"],
               ["Klik Instagram", fmt(t.instagram_click), ""],
               ["Pengunjung → klik beli", `${conversion}%`, "Shopee + WhatsApp + checkout"],
             ].map(([title, value, note]) => (
