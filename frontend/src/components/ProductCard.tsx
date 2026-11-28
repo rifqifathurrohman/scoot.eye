@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PriceTag from "@/components/PriceTag";
 import {
-  CUSTOM_PRINT_PRICE,
+  customPrintNote,
   formatPrice,
   getAvailableVariants,
   getDominantFrameColor,
@@ -136,7 +136,7 @@ export default function ProductCard({
                 ? "Out of stock"
                 : "Warna tidak ready untuk model ini"}
           </span>
-          <span className="text-[#c8102e]">Custom +{formatPrice(CUSTOM_PRINT_PRICE)}</span>
+          <span className="text-[#c8102e]">Custom {customPrintNote()}</span>
         </div>
         <div className="mt-4" data-testid={`product-swatches-${product.id}`}>
           <p className="font-mono text-[9px] font-bold uppercase tracking-[0.14em]">

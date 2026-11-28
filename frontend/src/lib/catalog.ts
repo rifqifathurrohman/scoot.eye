@@ -39,6 +39,18 @@ export interface CartItem {
 }
 
 export const CUSTOM_PRINT_PRICE = 15000;
+// Free UV print on website/WhatsApp orders, Mon 30 Nov – Sun 6 Dec 2026 (WIB), for the first 30 orders.
+// The quota is counted by the admin; end it early by moving FREE_PRINT_END. Marketplaces keep their own price.
+export const FREE_PRINT_START = new Date("2026-11-30T00:00:00+07:00");
+export const FREE_PRINT_END = new Date("2026-12-06T23:59:59+07:00");
+export const FREE_PRINT_LABEL = "30 pesanan pertama · s/d 6 Des";
+export const isFreePrint = (at: Date = new Date()) =>
+  at.getTime() >= FREE_PRINT_START.getTime() && at.getTime() <= FREE_PRINT_END.getTime();
+/** Custom-print fee a customer pays right now (0 during the free-print week). */
+export const customPrintPrice = (at: Date = new Date()) => (isFreePrint(at) ? 0 : CUSTOM_PRINT_PRICE);
+/** Short price note for custom print: "+Rp15.000" or "gratis". */
+export const customPrintNote = (at: Date = new Date()) =>
+  isFreePrint(at) ? "gratis" : `+${formatPrice(CUSTOM_PRINT_PRICE)}`;
 // Opening promo: openingPrice applies until the end of Sunday 29 Nov 2026 (WIB), then the regular price.
 // Built-in defaults; the backoffice (Supabase settings.opening_promo) can override both at runtime.
 export let OPENING_PROMO_END = new Date("2026-11-29T23:59:59+07:00");

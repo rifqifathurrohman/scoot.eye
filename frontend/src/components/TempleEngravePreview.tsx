@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { CUSTOM_PRINT_PRICE, formatPrice } from "@/lib/catalog";
+import { CUSTOM_PRINT_PRICE, formatPrice, isFreePrint } from "@/lib/catalog";
 import { saveCustomDraft } from "@/lib/customDraft";
 
 const TEMPLE_IMAGE =
@@ -333,7 +333,7 @@ export default function TempleEngravePreview({ className = "" }: { className?: s
               <div className="flex items-center justify-between gap-3">
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em]">
                   Custom gagang{" "}
-                  <span className="text-[#c8102e]">+{formatPrice(CUSTOM_PRINT_PRICE)}/pcs</span>
+                  <span className="text-[#c8102e]">{isFreePrint() ? "gratis" : `+${formatPrice(CUSTOM_PRINT_PRICE)}/pcs`}</span>
                 </p>
                 <button
                   type="button"

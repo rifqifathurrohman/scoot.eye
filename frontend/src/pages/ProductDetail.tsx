@@ -26,7 +26,10 @@ import { addCartItem } from "@/lib/cart";
 import { readCustomDraft } from "@/lib/customDraft";
 import {
   CUSTOM_PRINT_PRICE,
+  customPrintPrice,
+  FREE_PRINT_LABEL,
   formatPrice,
+  isFreePrint,
   getAvailableVariants,
   getVariantByCode,
   isDiscounted,
@@ -99,7 +102,7 @@ export default function ProductDetail() {
   const selectedStock = selectedVariant?.stock ?? 0;
   const colorName = selectedVariant?.color ?? selectedColor;
   const quantityAtLimit = quantity >= selectedStock;
-  const unitPrice = priceOf(product) + (customPrint ? CUSTOM_PRINT_PRICE : 0);
+  const unitPrice = priceOf(product) + (customPrint ? customPrintPrice() : 0);
   const whatsappText = `Halo SCOOT EYEWEAR, saya ingin bertanya tentang ${product.name} warna ${colorName} (kode ${selectedColor}). Jumlah: ${quantity} pcs. Pilihan: ${customPrint ? "custom print" : "polos"}. Harga satuan: ${formatPrice(unitPrice)}.`;
   const selectVariant = (code: string) => {
     setSelectedColor(code);
@@ -286,7 +289,7 @@ export default function ProductDetail() {
               >
                 <PriceTag
                   product={product}
-                  extra={customPrint ? CUSTOM_PRINT_PRICE : 0}
+                  extra={customPrint ? customPrintPrice() : 0}
                   strikeClassName="text-xl"
                   suffix=""
                 />
@@ -299,6 +302,11 @@ export default function ProductDetail() {
                 {isDiscounted(product) && (
                   <span className="ml-2 bg-[#c8102e] px-1.5 py-0.5 font-bold text-white">
                     Harga opening {OPENING_PROMO_LABEL}
+                  </span>
+                )}
+                {customPrint && isFreePrint() && (
+                  <span className="ml-2 bg-[#c8102e] px-1.5 py-0.5 font-bold text-white">
+                    Gratis print UV · {FREE_PRINT_LABEL}
                   </span>
                 )}
               </p>
@@ -378,11 +386,13 @@ export default function ProductDetail() {
                       Custom print
                     </strong>
                     <small className="mt-1 block text-xs opacity-70">
-                      Termasuk pouch hitam & box cokelat
+                      {isFreePrint()
+                        ? `Print UV gratis (normal +${formatPrice(CUSTOM_PRINT_PRICE)}) · pouch & box`
+                        : "Termasuk pouch hitam & box cokelat"}
                     </small>
                   </span>
                   <span className="font-mono text-xs font-bold">
-                    <PriceTag product={product} extra={CUSTOM_PRINT_PRICE} suffix="" className="justify-end" />
+                    <PriceTag product={product} extra={customPrintPrice()} suffix="" className="justify-end" />
                   </span>
                 </button>
               </div>

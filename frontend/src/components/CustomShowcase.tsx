@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { customPrintNote } from "@/lib/catalog";
 
 const details = [
   { src: "/custom/logo-yellow-blue.webp", label: "Logo kuning", frame: "Frame hitam · lensa biru" },
@@ -50,7 +51,7 @@ export default function CustomShowcase({ className = "" }: { className?: string 
           ))}
         </div>
         <Link to="/katalog/?custom=1" className="inline-flex w-fit items-center gap-3 bg-black px-5 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-white hover:bg-[#c8102e]" data-testid="custom-showcase-link">
-          Buat versimu · +Rp15.000 <ArrowRight size={15} />
+          Buat versimu · {customPrintNote()} <ArrowRight size={15} />
         </Link>
       </div>
     </section>

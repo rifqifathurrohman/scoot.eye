@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useCartCount } from "@/lib/cart";
 import BrandMark from "@/components/BrandMark";
 import { SiShopee } from "@icons-pack/react-simple-icons";
-import { formatPrice, isOpeningPromo, OPENING_PROMO_LABEL, priceOf, products, SHOPEE_STORE_URL, TOKOPEDIA_STORE_URL } from "@/lib/catalog";
+import { formatPrice, FREE_PRINT_LABEL, isFreePrint, isOpeningPromo, OPENING_PROMO_LABEL, priceOf, products, SHOPEE_STORE_URL, TOKOPEDIA_STORE_URL } from "@/lib/catalog";
 
 const navItems = [
 	{ label: "Katalog", to: "/katalog/" },
@@ -31,6 +31,11 @@ export default function SiteHeader() {
 							Mulai {formatPrice(Math.min(...products.map((item) => priceOf(item))))}{" "}
 							<span className="hidden sm:inline">· harga spesial </span>
 							{OPENING_PROMO_LABEL}
+						</Link>
+					) : isFreePrint() ? (
+						<Link to="/custom-print/" className="truncate hover:underline" data-testid="announcement-copy">
+							<span className="mr-2 bg-[#c8102e] px-1.5 py-0.5">Gratis</span>
+							Print UV di gagang <span className="hidden sm:inline">· {FREE_PRINT_LABEL}</span>
 						</Link>
 					) : (
 						<span className="truncate" data-testid="announcement-copy">

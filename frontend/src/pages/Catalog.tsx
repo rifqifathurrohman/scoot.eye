@@ -7,6 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { readCustomDraft } from "@/lib/customDraft";
 import {
+  customPrintNote,
   formatPrice,
   getAvailableVariants,
   getDominantFrameColor,
@@ -148,10 +149,10 @@ export default function Catalog() {
                 {draftLabel ? (
                   <>
                     Desainmu <strong>“{draftLabel}”</strong> tersimpan. Pilih model untuk
-                    melanjutkan (+Rp15.000/pcs).
+                    melanjutkan (print UV {customPrintNote()}).
                   </>
                 ) : (
-                  "Pilih model untuk menambahkan tulisan personal +Rp15.000/pcs."
+                  `Pilih model untuk menambahkan tulisan personal, print UV ${customPrintNote()}.`
                 )}
               </span>
             </div>
@@ -311,8 +312,8 @@ export default function Catalog() {
                 className="font-mono text-[10px] uppercase tracking-[0.14em]"
                 data-testid="catalog-results-count"
               >
-                {visibleProducts.length} model · Harga polos / pcs · Custom
-                +Rp15.000
+                {visibleProducts.length} model · Harga polos / pcs · Custom{" "}
+                {customPrintNote()}
               </p>
               <label
                 className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em]"
